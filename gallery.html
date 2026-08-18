@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Culinara | Kitchen & Food Gallery</title>
+    <meta name="description" content="Explore photos of Culinara's workstations, plated dishes, pasta rolling, sourdough baking, and communal wine tastings." />
+    
+    <script>
+      (function() {
+        var theme = localStorage.getItem('culinara_theme') || 'light';
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+        }
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,580;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/dark-mode.css" />
+    <link rel="stylesheet" href="assets/css/rtl.css" />
+  </head>
+  <body class="min-h-screen flex flex-col font-sans transition-colors duration-200 bg-[#FAF7F2] text-[#2C2723] dark:bg-[#121110] dark:text-[#EDE8E1]">
+    
+    <!-- STICKY HEADER -->
+                    <header id="main-sticky-header" class="fixed top-0 left-0 right-0 z-40 bg-[#FAF7F2] border-b border-[#E8DFC8] dark:bg-[#121110] dark:border-[#2A2622] shadow-xs transition-all duration-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        
+              <!-- BRAND LOGO -->
+      <a href="index.html" class="inline-flex items-center gap-2.5 focus:outline-none text-left">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+          class="flex-shrink-0">
+          <rect width="40" height="40" rx="10"
+            class="fill-[#F4ECE1] dark:fill-[#231F1C] stroke-[#E25822] dark:stroke-[#E5A952]" stroke-width="1.5" />
+          <path
+            d="M20 9C20 9 24.5 13.5 24.5 18.5C24.5 22.5 21.5 25 18 25C14.5 25 12 22 12 18.5C12 15 14 12.5 15.5 11C15 13 16 14.5 17.5 14.5C19 14.5 19.5 13 19.5 11C19.5 10 20 9 20 9Z"
+            fill="url(#flame_grad_hdr)" />
+          <path d="M26 29L21 24M21 24L22.5 22.5M21 24L19.5 25.5" class="stroke-[#D45B3A] dark:stroke-[#E5A952]"
+            stroke-width="2" stroke-linecap="round" />
+          <circle cx="28" cy="14" r="2" class="fill-[#E25822] dark:fill-[#FF6B35]" />
+          <defs>
+            <linearGradient id="flame_grad_hdr" x1="12" y1="9" x2="25" y2="25" gradientUnits="userSpaceOnUse">
+              <stop class="stop-color-[#E25822] dark:stop-color-[#FF6B35]" stop-color="#E25822" />
+              <stop offset="1" class="stop-color-[#D45B3A] dark:stop-color-[#E5A952]" stop-color="#D45B3A" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="flex flex-col leading-none">
+          <span class="text-xl tracking-tight font-semibold text-stone-900 dark:text-white"
+            style="font-weight: 580;">Culinara</span>
+          <span
+            class="text-[10px] tracking-widest uppercase font-medium mt-0.5 text-stone-500 dark:text-amber-400/90">CULINARY
+            STUDIO</span>
+        </div>
+      </a>
+
+        <!-- DESKTOP NAVIGATION (>= 1100px) -->
+        <nav class="hidden min-[1100px]:flex items-center gap-1.5 lg:gap-2 text-[0.95rem]">
+          <a href="index.html" class="px-3.5 py-2 rounded-lg font-medium text-stone-700 hover:bg-stone-200/60 dark:text-stone-300 dark:hover:bg-stone-800/60">Home</a><a href="home-2.html" class="px-3.5 py-2 rounded-lg font-medium text-stone-700 hover:bg-stone-200/60 dark:text-stone-300 dark:hover:bg-stone-800/60">Chef's Table</a><a href="about.html" class="px-3.5 py-2 rounded-lg font-medium text-stone-700 hover:bg-stone-200/60 dark:text-stone-300 dark:hover:bg-stone-800/60">About</a><a href="services.html" class="px-3.5 py-2 rounded-lg font-medium text-stone-700 hover:bg-stone-200/60 dark:text-stone-300 dark:hover:bg-stone-800/60">Workshops & Passes</a><a href="contact.html" class="px-3.5 py-2 rounded-lg font-medium text-stone-700 hover:bg-stone-200/60 dark:text-stone-300 dark:hover:bg-stone-800/60">Contact</a><a href="dashboard.html" class="px-3.5 py-2 rounded-lg font-medium text-stone-700 hover:bg-stone-200/60 dark:text-stone-300 dark:hover:bg-stone-800/60">Dashboard</a>
+        </nav>
+
+        <!-- DESKTOP RIGHT ACTIONS (>= 1100px) -->
+        <div class="hidden min-[1100px]:flex items-center gap-2.5">
+          <button id="header-rtl-toggle-btn" class="px-3 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer">RTL</button>
+          <button id="header-theme-toggle-btn" class="flex items-center justify-center p-2 text-xs font-semibold tracking-wider rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer" aria-label="Toggle Theme">
+            <svg class="w-4 h-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          </button>
+          <button onclick="openBookingModal()" class="px-4 py-2 text-xs font-semibold rounded-lg bg-[#D45B3A] text-white dark:bg-gradient-to-r dark:from-[#FF6B35] dark:to-[#E5A952] dark:text-stone-950 cursor-pointer">Book Workshop</button>
+          <a href="auth.html" class="px-4 py-2 text-xs font-semibold rounded-lg border border-[#D45B3A] text-[#D45B3A] dark:border-amber-400 dark:text-amber-400 hover:bg-[#D45B3A] hover:text-white dark:hover:bg-amber-400 dark:hover:text-stone-950 transition-colors">Login</a>
+        </div>
+
+        <!-- TABLET & MOBILE CONTROLS (< 1100px) -->
+        <div class="flex items-center gap-2 min-[1100px]:hidden">
+          <button id="header-rtl-toggle-btn" class="px-2.5 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer">RTL</button>
+          <button id="header-theme-toggle-btn" class="flex items-center justify-center p-2 text-xs font-semibold tracking-wider rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer" aria-label="Toggle Theme">
+            <svg class="w-4 h-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          </button>
+          <button id="mobile-hamburger-toggle-btn" class="p-2 rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer" aria-label="Open Navigation Menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- SINGLE CLEAN TABLET & MOBILE OFFCANVAS DRAWER -->
+    <div id="mobile-fullscreen-menu" class="hidden fixed inset-0 z-50 bg-[#FAF7F2] dark:bg-[#121110] flex flex-col justify-between p-6 overflow-y-auto min-[1100px]:hidden shadow-2xl">
+      <div>
+        <div class="flex items-center justify-between pb-4 border-b border-[#E5D7C5] dark:border-[#332D27]">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#D45B3A] dark:text-amber-400">Navigation Menu</span>
+          <button onclick="document.getElementById('mobile-fullscreen-menu').classList.add('hidden')" class="p-2 rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer" aria-label="Close Menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+        </div>
+
+        <nav class="flex flex-col gap-2.5 py-6 text-base font-semibold">
+          <a href="index.html" class="px-4 py-3 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Home</a><a href="home-2.html" class="px-4 py-3 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Chef's Table</a><a href="about.html" class="px-4 py-3 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">About</a><a href="services.html" class="px-4 py-3 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Workshops & Passes</a><a href="contact.html" class="px-4 py-3 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Contact</a><a href="dashboard.html" class="px-4 py-3 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Dashboard</a>
+        </nav>
+      </div>
+
+      <div class="space-y-3 pt-6 border-t border-[#E5D7C5] dark:border-[#332D27]">
+        <button onclick="document.getElementById('mobile-fullscreen-menu').classList.add('hidden'); openBookingModal();" class="w-full py-3 text-sm font-semibold rounded-xl bg-[#D45B3A] text-white dark:bg-gradient-to-r dark:from-[#FF6B35] dark:to-[#E5A952] dark:text-stone-950 cursor-pointer">Book Workshop</button>
+        <a href="auth.html" class="block w-full text-center py-3 text-sm font-semibold rounded-xl border border-[#D45B3A] text-[#D45B3A] dark:border-amber-400 dark:text-amber-400 font-semibold">Login to Student Portal</a>
+      </div>
+    </div>
+
+<main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 md:pt-28">
+      <div class="space-y-24 sm:space-y-28 pb-24">
+        
+        <!-- HERO BANNER -->
+        <section id="gallery-hero-banner" class="relative py-24 px-4 text-center rounded-3xl overflow-hidden border border-[#3D342B] bg-[#141210] text-white shadow-xl">
+          <div class="absolute inset-0 bg-cover bg-center opacity-25" style="background-image: url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1600&q=80');"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0E0D0C] via-black/60 to-black/40"></div>
+
+          <div class="relative z-10 max-w-3xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/20 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-4 border border-amber-500/30">
+              <span>Studio Moments & Plated Artistry</span>
+            </div>
+            <h1 class="text-4xl sm:text-5xl text-white tracking-tight" style="font-weight: 580;">
+              Visual Taste of the Culinara Experience
+            </h1>
+            <p class="mt-4 text-base sm:text-lg text-stone-300 leading-relaxed max-w-2xl mx-auto font-normal">
+              Take a look inside our workstations, pasta extrusions, torch searings, and vibrant communal tastings.
+            </p>
+          </div>
+        </section>
+
+        <!-- GALLERY GRID -->
+        <section id="gallery-grid-section" class="max-w-7xl mx-auto">
+          <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
+            <button data-filter-btn="all" class="active px-4 py-2 text-xs font-semibold rounded-xl border bg-[#D45B3A] text-white border-[#D45B3A] dark:bg-amber-500 dark:text-stone-950">All</button>
+            <button data-filter-btn="Italian" class="px-4 py-2 text-xs font-semibold rounded-xl border bg-white border-[#E0D5C5] text-stone-700 dark:bg-[#181614] dark:border-[#312B26] dark:text-stone-300">Italian</button>
+            <button data-filter-btn="Indian" class="px-4 py-2 text-xs font-semibold rounded-xl border bg-white border-[#E0D5C5] text-stone-700 dark:bg-[#181614] dark:border-[#312B26] dark:text-stone-300">Indian</button>
+            <button data-filter-btn="Baking" class="px-4 py-2 text-xs font-semibold rounded-xl border bg-white border-[#E0D5C5] text-stone-700 dark:bg-[#181614] dark:border-[#312B26] dark:text-stone-300">Baking</button>
+          </div>
+
+          <div class="card-grid-3 max-w-7xl mx-auto">
+            <!-- 1 -->
+            <div data-filter-item="Italian" class="group relative rounded-2xl overflow-hidden aspect-[4/3] border border-[#E8DFD3] bg-white dark:border-[#312B26] dark:bg-[#181614]">
+              <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80" alt="Pasta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <!-- 2 -->
+            <div data-filter-item="Indian" class="group relative rounded-2xl overflow-hidden aspect-[4/3] border border-[#E8DFD3] bg-white dark:border-[#312B26] dark:bg-[#181614]">
+              <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80" alt="Biryani" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <!-- 3 -->
+            <div data-filter-item="Baking" class="group relative rounded-2xl overflow-hidden aspect-[4/3] border border-[#E8DFD3] bg-white dark:border-[#312B26] dark:bg-[#181614]">
+              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Sourdough" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- RICH MULTI-COLUMN FOOTER -->
+        <!-- COMPACT ELEGANT FOOTER -->
+        <!-- COMPACT ELEGANT FOOTER WITH BREATHABLE TOP MARGIN -->
+    <footer id="main-app-footer" class="mt-20 md:mt-28 pt-12 pb-8 border-t bg-[#F5EFE6] text-stone-700 border-[#E2D5C3] dark:bg-[#0E0D0C] dark:text-stone-300 dark:border-[#26221E]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-8 border-b border-[#E2D5C3] dark:border-[#26221E]">
+          
+          <!-- Col 1: Brand Info & 100% Exact Header Logo Replica -->
+          <div class="space-y-3">
+            <a href="index.html" class="inline-flex items-center gap-2.5 focus:outline-none text-left">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
+                <rect width="40" height="40" rx="10" class="fill-[#F4ECE1] dark:fill-[#231F1C] stroke-[#E25822] dark:stroke-[#E5A952]" stroke-width="1.5"/>
+                <path d="M20 9C20 9 24.5 13.5 24.5 18.5C24.5 22.5 21.5 25 18 25C14.5 25 12 22 12 18.5C12 15 14 12.5 15.5 11C15 13 16 14.5 17.5 14.5C19 14.5 19.5 13 19.5 11C19.5 10 20 9 20 9Z" fill="url(#flame_grad_foot)"/>
+                <path d="M26 29L21 24M21 24L22.5 22.5M21 24L19.5 25.5" class="stroke-[#D45B3A] dark:stroke-[#E5A952]" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="28" cy="14" r="2" class="fill-[#E25822] dark:fill-[#FF6B35]"/>
+                <defs>
+                  <linearGradient id="flame_grad_foot" x1="12" y1="9" x2="25" y2="25" gradientUnits="userSpaceOnUse">
+                    <stop class="stop-color-[#E25822] dark:stop-color-[#FF6B35]" stop-color="#E25822"/>
+                    <stop offset="1" class="stop-color-[#D45B3A] dark:stop-color-[#E5A952]" stop-color="#D45B3A"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="flex flex-col leading-none">
+                <span class="text-xl tracking-tight font-semibold text-stone-900 dark:text-white" style="font-weight: 580;">Culinara</span>
+                <span class="text-[10px] tracking-widest uppercase font-medium mt-0.5 text-stone-500 dark:text-amber-400/90">CULINARY STUDIO</span>
+              </div>
+            </a>
+            <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
+              Artisanal culinary studio offering 100% hands-on masterclasses, marble workstation learning, and sommelier dining experiences.
+            </p>
+            <div class="text-xs text-stone-600 dark:text-stone-400 space-y-0.5">
+              <p>📍 420 Artisan Lane, San Francisco, CA</p>
+              <p>📞 +1 (415) 890-7621 • ✉️ contact@culinara.studio</p>
+            </div>
+          </div>
+
+          <!-- Col 2: Navigation Links -->
+          <div class="space-y-2">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100">Studio Pages</h4>
+            <ul class="space-y-1.5 text-xs">
+              <li><a href="index.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Home Studio</a></li>
+              <li><a href="home-2.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Chef's Table</a></li>
+              <li><a href="services.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Workshops & Passes</a></li>
+              <li><a href="about.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">About Our Kitchen</a></li>
+              <li><a href="gallery.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Photo Gallery</a></li>
+              <li><a href="blog.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Culinary Journal</a></li>
+              <li><a href="contact.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Contact Concierge</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Cuisine Masterclasses -->
+          <div class="space-y-2">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100">Cuisine Tracks</h4>
+            <ul class="space-y-1.5 text-xs">
+              <li><a href="services.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Italian Egg-Pasta Craft</a></li>
+              <li><a href="services.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Royal Awadhi Biryani</a></li>
+              <li><a href="services.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Sourdough & Viennoiserie</a></li>
+              <li><a href="services.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">French Bistro Reductions</a></li>
+              <li><a href="services.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Artisanal Crystal Dim Sum</a></li>
+              <li><a href="services.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Neapolitan Wood-Fired Pizza</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Newsletter Signup -->
+          <div class="space-y-2">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100">Chef’s Journal</h4>
+            <p class="text-xs text-stone-600 dark:text-stone-400">Subscribe for weekly chef notes, ingredient tips, and 48h priority alerts for guest masterclasses.</p>
+            <form onsubmit="event.preventDefault(); showToast('Subscribed to Chef Journal!', 'success');" class="space-y-2 pt-1">
+              <input type="email" required placeholder="Your email address..." class="w-full px-3 py-2 text-xs rounded-lg border bg-white border-[#DFD3C3] text-stone-800 dark:bg-[#1C1A17] dark:border-[#38302A] dark:text-stone-100" />
+              <button type="submit" class="w-full py-2 px-3 text-xs font-bold rounded-lg bg-[#D45B3A] text-white dark:bg-[#FF6B35] dark:text-stone-950">Join Journal</button>
+            </form>
+          </div>
+
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-stone-500">
+          <span>&copy; 2026 Culinara Culinary Studio. All rights reserved.</span>
+          <button id="footer-back-to-top-btn" class="px-3 py-1.5 rounded-lg text-xs font-semibold border bg-white border-[#DFD4C5] text-stone-800 dark:bg-[#1E1B18] dark:border-[#38312B] dark:text-amber-400 cursor-pointer">Back to Top ↑</button>
+        </div>
+      </div>
+    </footer>
+
+    <!-- MODALS -->
+    <div id="class-booking-modal-backdrop" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-xs overflow-y-auto">
+      <div id="class-booking-modal-card" class="relative w-full max-w-xl rounded-2xl border shadow-2xl bg-[#FAF8F5] border-[#E5D7C5] text-stone-900 dark:bg-[#181614] dark:border-[#362F29] dark:text-stone-100"></div>
+    </div>
+    <div id="recipe-notes-modal-backdrop" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-xs overflow-y-auto">
+      <div id="recipe-notes-modal-card" class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl border shadow-2xl bg-[#FAF8F5] border-[#E5D7C5] text-stone-900 dark:bg-[#181614] dark:border-[#362F29] dark:text-stone-100"></div>
+    </div>
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none"></div>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

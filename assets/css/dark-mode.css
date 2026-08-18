@@ -1,0 +1,24 @@
+/* Culinara Studio — Dark Theme Override Rules */
+html.dark {
+  color-scheme: dark;
+  background-color: #121110;
+  color: #EDE8E1;
+}
+
+html.dark body {
+  background-color: #121110;
+  color: #EDE8E1;
+}
+
+html.dark ::selection {
+  background-color: rgba(249, 115, 22, 0.3);
+}
+
+/* Custom scrollbar in dark mode */
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgba(200, 180, 150, 0.25);
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(200, 180, 150, 0.45);
+}

@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Culinara | Student Login & Sign Up</title>
+  <meta name="description" content="Sign in or register for your Culinara student account." />
+
+  <script>
+    (function () {
+      var theme = localStorage.getItem('culinara_theme') || 'light';
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+      }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,580;0,600;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/dark-mode.css" />
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+
+  <style>
+    /* Password Eye Button pinned cleanly to right side (left side in RTL) */
+    .auth-pass-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .auth-pass-input {
+      width: 100%;
+      padding-left: 16px !important;
+      padding-right: 48px !important;
+    }
+
+    .auth-pass-eye-btn {
+      position: absolute !important;
+      right: 12px !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      z-index: 20 !important;
+      background: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Far Top-Right in LTR mode, Far Top-Left in RTL mode with 1rem (16px) margin, scrolling with page */
+    .auth-page-toggles {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      z-index: 50;
+    }
+
+    html[dir="rtl"] .auth-pass-input {
+      padding-left: 48px !important;
+      padding-right: 16px !important;
+    }
+
+    html[dir="rtl"] .auth-pass-eye-btn {
+      right: auto !important;
+      left: 12px !important;
+    }
+
+    html[dir="rtl"] .auth-page-toggles {
+      right: auto !important;
+      left: 1rem !important;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col justify-between font-sans transition-colors duration-200 bg-[#FAF7F2] text-[#2C2723] dark:bg-[#121110] dark:text-[#EDE8E1] relative">
+
+  <!-- TOGGLES AT FAR TOP-RIGHT (FAR TOP-LEFT IN RTL) WITH 1REM SPACE, SCROLLS WITH PAGE -->
+  <div class="auth-page-toggles">
+    <button id="header-rtl-toggle-btn" class="px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer shadow-xs">
+      RTL
+    </button>
+    <button id="header-theme-toggle-btn" class="flex items-center justify-center p-2 text-xs font-semibold tracking-wider rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer shadow-xs" aria-label="Toggle Theme">
+      <svg class="w-4 h-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+      </svg>
+      <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- MAIN CENTERED CONTENT CONTAINER -->
+  <main class="flex-1 flex flex-col items-center justify-center p-4 py-16 sm:py-20">
+    <div class="w-full max-w-md">
+
+      <!-- AUTH FORM CONTAINER -->
+      <div class="p-8 sm:p-10 rounded-3xl border bg-white border-[#EADECF] dark:bg-[#161412] dark:border-[#332D27] shadow-xl">
+
+        <!-- COMPANY LOGO INSIDE FORM -->
+        <div class="text-center mb-8">
+                <!-- BRAND LOGO -->
+      <a href="index.html" class="inline-flex items-center gap-2.5 focus:outline-none text-left">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+          class="flex-shrink-0">
+          <rect width="40" height="40" rx="10"
+            class="fill-[#F4ECE1] dark:fill-[#231F1C] stroke-[#E25822] dark:stroke-[#E5A952]" stroke-width="1.5" />
+          <path
+            d="M20 9C20 9 24.5 13.5 24.5 18.5C24.5 22.5 21.5 25 18 25C14.5 25 12 22 12 18.5C12 15 14 12.5 15.5 11C15 13 16 14.5 17.5 14.5C19 14.5 19.5 13 19.5 11C19.5 10 20 9 20 9Z"
+            fill="url(#flame_grad_hdr)" />
+          <path d="M26 29L21 24M21 24L22.5 22.5M21 24L19.5 25.5" class="stroke-[#D45B3A] dark:stroke-[#E5A952]"
+            stroke-width="2" stroke-linecap="round" />
+          <circle cx="28" cy="14" r="2" class="fill-[#E25822] dark:fill-[#FF6B35]" />
+          <defs>
+            <linearGradient id="flame_grad_hdr" x1="12" y1="9" x2="25" y2="25" gradientUnits="userSpaceOnUse">
+              <stop class="stop-color-[#E25822] dark:stop-color-[#FF6B35]" stop-color="#E25822" />
+              <stop offset="1" class="stop-color-[#D45B3A] dark:stop-color-[#E5A952]" stop-color="#D45B3A" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="flex flex-col leading-none">
+          <span class="text-xl tracking-tight font-semibold text-stone-900 dark:text-white"
+            style="font-weight: 580;">Culinara</span>
+          <span
+            class="text-[10px] tracking-widest uppercase font-medium mt-0.5 text-stone-500 dark:text-amber-400/90">CULINARY
+            STUDIO</span>
+        </div>
+      </a>
+
+          <div class="block">
+            <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-700 dark:text-amber-400 text-xs font-semibold uppercase tracking-wider mb-2">
+              ✨ Student Portal
+            </span>
+            <h1 id="auth-title" class="text-2xl font-semibold text-stone-900 dark:text-stone-100">
+              Sign in to Culinara
+            </h1>
+            <p id="auth-subtitle" class="text-xs text-stone-600 dark:text-stone-400 mt-1.5 leading-relaxed">
+              Access your workshop passes, recipe vault & schedule.
+            </p>
+          </div>
+        </div>
+
+        <!-- LOGIN / SIGNUP FORM -->
+        <form id="login-form" class="space-y-5" onsubmit="event.preventDefault(); handleAuthSubmit();">
+          <!-- Full Name (Sign Up only) -->
+          <div id="name-field-group" class="hidden">
+            <label class="block text-xs font-semibold text-stone-800 dark:text-stone-200 mb-1.5">Full Name</label>
+            <input type="text" id="auth-name-input" placeholder="Elena Rostova" class="w-full px-4 py-3 text-xs rounded-xl border bg-[#FAF8F5] border-[#D8CCBD] text-stone-900 dark:bg-[#1F1C18] dark:border-[#38312B] dark:text-stone-100 focus:outline-none focus:border-[#D45B3A] dark:focus:border-amber-400 transition-colors" />
+          </div>
+
+          <!-- Email Address -->
+          <div>
+            <label class="block text-xs font-semibold text-stone-800 dark:text-stone-200 mb-1.5">Email Address</label>
+            <input type="email" required id="auth-email-input" value="elena.rostova@culinara.com" placeholder="elena@example.com" class="w-full px-4 py-3 text-xs rounded-xl border bg-[#FAF8F5] border-[#D8CCBD] text-stone-900 dark:bg-[#1F1C18] dark:border-[#38312B] dark:text-stone-100 focus:outline-none focus:border-[#D45B3A] dark:focus:border-amber-400 transition-colors" />
+          </div>
+
+          <!-- Password with Fixed Eye Toggle Position -->
+          <div>
+            <label class="block text-xs font-semibold text-stone-800 dark:text-stone-200 mb-1.5">Password</label>
+            <div class="auth-pass-wrapper">
+              <input type="password" required id="auth-password-input" value="123456789" placeholder="••••••••••••" class="auth-pass-input py-3 text-xs rounded-xl border bg-[#FAF8F5] border-[#D8CCBD] text-stone-900 dark:bg-[#1F1C18] dark:border-[#38312B] dark:text-stone-100 focus:outline-none focus:border-[#D45B3A] dark:focus:border-amber-400 transition-colors" />
+              <button type="button" onclick="togglePasswordVisibility('auth-password-input', 'pass-eye-icon')" class="auth-pass-eye-btn text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 cursor-pointer p-1.5 focus:outline-none" aria-label="Toggle Password Visibility">
+                <svg id="pass-eye-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Confirm Password Field (Sign Up only) -->
+          <div id="confirm-password-group" class="hidden">
+            <label class="block text-xs font-semibold text-stone-800 dark:text-stone-200 mb-1.5">Confirm Password</label>
+            <div class="auth-pass-wrapper">
+              <input type="password" id="auth-confirm-password-input" placeholder="••••••••••••" class="auth-pass-input py-3 text-xs rounded-xl border bg-[#FAF8F5] border-[#D8CCBD] text-stone-900 dark:bg-[#1F1C18] dark:border-[#38312B] dark:text-stone-100 focus:outline-none focus:border-[#D45B3A] dark:focus:border-amber-400 transition-colors" />
+              <button type="button" onclick="togglePasswordVisibility('auth-confirm-password-input', 'confirm-pass-eye-icon')" class="auth-pass-eye-btn text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 cursor-pointer p-1.5 focus:outline-none" aria-label="Toggle Confirm Password Visibility">
+                <svg id="confirm-pass-eye-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Remember Me & Forgot Password (Sign In only) -->
+          <div id="remember-forgot-group" class="flex items-center justify-between text-xs pt-1">
+            <label class="flex items-center gap-2 cursor-pointer text-stone-600 dark:text-stone-400">
+              <input type="checkbox" checked class="rounded border-stone-300 text-[#D45B3A] focus:ring-0 cursor-pointer" />
+              <span>Remember me</span>
+            </label>
+            <button type="button" onclick="showToast('Password reset link sent to your email!', 'info')" class="text-[#D45B3A] dark:text-amber-400 font-semibold hover:underline cursor-pointer">
+              Forgot Password?
+            </button>
+          </div>
+
+          <!-- Terms and Conditions Checkbox (Sign Up only) -->
+          <div id="terms-group" class="hidden text-xs pt-1">
+            <label class="flex items-start gap-2.5 cursor-pointer text-stone-600 dark:text-stone-400">
+              <input type="checkbox" id="terms-checkbox" class="mt-0.5 rounded border-stone-300 text-[#D45B3A] focus:ring-0 cursor-pointer" />
+              <span class="leading-relaxed">I agree to the <a href="#" class="text-[#D45B3A] dark:text-amber-400 font-semibold underline">Terms of Service</a> & <a href="#" class="text-[#D45B3A] dark:text-amber-400 font-semibold underline">Privacy Policy</a></span>
+            </label>
+          </div>
+
+          <!-- Primary Submit Button -->
+          <button type="submit" id="auth-submit-btn" class="w-full py-3.5 px-4 rounded-xl font-bold text-xs transition-all shadow-sm bg-[#D45B3A] text-white hover:bg-[#C04929] dark:bg-gradient-to-r dark:from-[#FF6B35] dark:to-[#E5A952] dark:text-stone-950 mt-3 cursor-pointer">
+            Sign In →
+          </button>
+        </form>
+
+        <!-- SOCIAL LOGINS: GOOGLE & APPLE -->
+        <div class="my-6 flex items-center gap-2 text-[11px] text-stone-400">
+          <div class="flex-1 h-px bg-stone-200 dark:bg-stone-800"></div>
+          <span id="social-divider-text">Or continue with</span>
+          <div class="flex-1 h-px bg-stone-200 dark:bg-stone-800"></div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <!-- Google Login Button -->
+          <button onclick="showToast('Redirecting to Google Sign-In...', 'info'); setTimeout(()=> window.location.href='dashboard.html', 800);" class="py-2.5 px-3 rounded-xl border flex items-center justify-center gap-2 text-xs font-semibold transition-colors cursor-pointer bg-white border-[#E0D4C5] text-stone-800 hover:bg-[#FAF6F0] dark:bg-[#1F1C18] dark:border-[#38312B] dark:text-stone-200 dark:hover:border-amber-500">
+            <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+            </svg>
+            <span>Google</span>
+          </button>
+
+          <!-- Apple Login Button -->
+          <button onclick="showToast('Redirecting to Apple ID...', 'info'); setTimeout(()=> window.location.href='dashboard.html', 800);" class="py-2.5 px-3 rounded-xl border flex items-center justify-center gap-2 text-xs font-semibold transition-colors cursor-pointer bg-white border-[#E0D4C5] text-stone-800 hover:bg-[#FAF6F0] dark:bg-[#1F1C18] dark:border-[#38312B] dark:text-stone-200 dark:hover:border-amber-500">
+            <svg class="w-4 h-4 flex-shrink-0 fill-current" viewBox="0 0 24 24">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.36c.64-.78 1.08-1.85.96-2.92-.93.04-2.06.62-2.73 1.4-.59.69-1.11 1.79-.97 2.86 1.05.08 2.1-.56 2.74-1.34z" />
+            </svg>
+            <span>Apple</span>
+          </button>
+        </div>
+
+        <!-- TOGGLE BETWEEN LOGIN AND REGISTER -->
+        <div class="mt-8 pt-6 border-t border-stone-200 dark:border-stone-800 text-center">
+          <p class="text-xs text-stone-600 dark:text-stone-400">
+            <span id="auth-toggle-msg">Don't have a student account?</span>
+            <button type="button" id="auth-toggle-btn" class="ml-1.5 font-semibold text-[#D45B3A] dark:text-amber-400 hover:underline cursor-pointer">Register here</button>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none"></div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    var toggleBtn = document.getElementById('auth-toggle-btn');
+    var isLoginMode = true;
+
+    // Password visibility toggle function
+    function togglePasswordVisibility(inputId, iconId) {
+      var input = document.getElementById(inputId);
+      var icon = document.getElementById(iconId);
+      if (!input || !icon) return;
+
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858-5.908a10.025 10.025 0 0110.222 1.937M15 12a3 3 0 11-6 0 3 3 0 016 0zm6 3l-18-18" />';
+      } else {
+        input.type = 'password';
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />';
+      }
+    }
+
+    // Handle Form Submit
+    function handleAuthSubmit() {
+      if (!isLoginMode) {
+        var pass = document.getElementById('auth-password-input').value;
+        var confirmPass = document.getElementById('auth-confirm-password-input').value;
+        var terms = document.getElementById('terms-checkbox');
+
+        if (pass !== confirmPass) {
+          showToast('Passwords do not match.', 'error');
+          return;
+        }
+        if (terms && !terms.checked) {
+          showToast('Please agree to the Terms of Service.', 'error');
+          return;
+        }
+        showToast('Account created successfully! Welcome to Culinara.', 'success');
+      } else {
+        showToast('Welcome back to Culinara Student Portal!', 'success');
+      }
+
+      setTimeout(function () {
+        window.location.href = 'dashboard.html';
+      }, 800);
+    }
+
+    // Mode Toggle (Sign In vs Register) + Smooth Scroll to Top
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', function () {
+        isLoginMode = !isLoginMode;
+
+        // Headers & Buttons
+        document.getElementById('auth-title').textContent = isLoginMode ? 'Sign in to Culinara' : 'Create Student Account';
+        document.getElementById('auth-subtitle').textContent = isLoginMode ? 'Access your workshop passes, recipe vault & schedule.' : 'Join our guild of home cooks and culinary masters.';
+        document.getElementById('auth-submit-btn').textContent = isLoginMode ? 'Sign In →' : 'Create Account →';
+        document.getElementById('auth-toggle-msg').textContent = isLoginMode ? "Don't have a student account?" : 'Already have an account?';
+        document.getElementById('social-divider-text').textContent = isLoginMode ? "Or continue with" : "Or sign up with";
+        toggleBtn.textContent = isLoginMode ? 'Register here' : 'Sign in';
+
+        // Group Toggles
+        var nameGroup = document.getElementById('name-field-group');
+        var confirmPassGroup = document.getElementById('confirm-password-group');
+        var rememberForgotGroup = document.getElementById('remember-forgot-group');
+        var termsGroup = document.getElementById('terms-group');
+
+        if (isLoginMode) {
+          if (nameGroup) nameGroup.classList.add('hidden');
+          if (confirmPassGroup) confirmPassGroup.classList.add('hidden');
+          if (rememberForgotGroup) rememberForgotGroup.classList.remove('hidden');
+          if (termsGroup) termsGroup.classList.add('hidden');
+        } else {
+          if (nameGroup) nameGroup.classList.remove('hidden');
+          if (confirmPassGroup) confirmPassGroup.classList.remove('hidden');
+          if (rememberForgotGroup) rememberForgotGroup.classList.add('hidden');
+          if (termsGroup) termsGroup.classList.remove('hidden');
+        }
+
+        // Smooth scroll to top when toggling between Sign In and Sign Up
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  </script>
+</body>
+</html>

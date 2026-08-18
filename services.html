@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Culinara | Masterclasses, Workshops & Studio Passes</title>
+    <meta name="description" content="Explore hands-on masterclasses across Italian pasta, Indian biryani, sourdough baking, and French reductions with flexible studio passes." />
+    
+    <script>
+      (function() {
+        var theme = localStorage.getItem('culinara_theme') || 'light';
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+        }
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,580;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/dark-mode.css" />
+    <link rel="stylesheet" href="assets/css/rtl.css" />
+  </head>
+  <body class="min-h-screen flex flex-col font-sans transition-colors duration-200 bg-[#FAF7F2] text-[#2C2723] dark:bg-[#121110] dark:text-[#EDE8E1]">
+    
+    <!-- STICKY HEADER -->
+                    <header id="main-sticky-header" class="fixed top-0 left-0 right-0 z-40 bg-[#FAF7F2] border-b border-[#E8DFC8] dark:bg-[#121110] dark:border-[#2A2622] shadow-xs transition-all duration-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        
+              <!-- BRAND LOGO -->
+      <a href="index.html" class="inline-flex items-center gap-2.5 focus:outline-none text-left">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+          class="flex-shrink-0">
+          <rect width="40" height="40" rx="10"
+            class="fill-[#F4ECE1] dark:fill-[#231F1C] stroke-[#E25822] dark:stroke-[#E5A952]" stroke-width="1.5" />
+          <path
+            d="M20 9C20 9 24.5 13.5 24.5 18.5C24.5 22.5 21.5 25 18 25C14.5 25 12 22 12 18.5C12 15 14 12.5 15.5 11C15 13 16 14.5 17.5 14.5C19 14.5 19.5 13 19.5 11C19.5 10 20 9 20 9Z"
+            fill="url(#flame_grad_hdr)" />
+          <path d="M26 29L21 24M21 24L22.5 22.5M21 24L19.5 25.5" class="stroke-[#D45B3A] dark:stroke-[#E5A952]"
+            stroke-width="2" stroke-linecap="round" />
+          <circle cx="28" cy="14" r="2" class="fill-[#E25822] dark:fill-[#FF6B35]" />
+          <defs>
+            <linearGradient id="flame_grad_hdr" x1="12" y1="9" x2="25" y2="25" gradientUnits="userSpaceOnUse">
+              <stop class="stop-color-[#E25822] dark:stop-color-[#FF6B35]" stop-color="#E25822" />
+              <stop offset="1" class="stop-color-[#D45B3A] dark:stop-color-[#E5A952]" stop-color="#D45B3A" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="flex flex-col leading-none">
+          <span class="text-xl tracking-tight font-semibold text-stone-900 dark:text-white"
+            style="font-weight: 580;">Culinara</span>
+          <span
+            class="text-[10px] tracking-widest uppercase font-medium mt-0.5 text-stone-500 dark:text-amber-400/90">CULINARY
+            STUDIO</span>
+        </div>
+      </a>
+
+        <!-- DESKTOP NAVIGATION (>= 1100px) -->
+        <nav class="hidden min-[1100px]:flex items-center gap-1.5 lg:gap-2 text-[0.95rem]">
+          <a href="index.html" class="px-3.5 py-2 rounded-lg font-medium text-stone-700 hover:bg-stone-200/60 dark:text-stone-300 dark:hover:bg-stone-800/60">Home</a><a href="home-2.html" class="px-3.5 py-2 rounded-lg font-medium text-stone-700 hover:bg-stone-200/60 dark:text-stone-300 dark:hover:bg-stone-800/60">Chef's Table</a><a href="about.html" class="px-3.5 py-2 rounded-lg font-medium text-stone-700 hover:bg-stone-200/60 dark:text-stone-300 dark:hover:bg-stone-800/60">About</a><a href="services.html" class="px-3.5 py-2 rounded-lg font-semibold bg-[#F2E8DA] text-[#D45B3A] dark:bg-[#2A241F] dark:text-amber-400">Workshops & Passes</a><a href="contact.html" class="px-3.5 py-2 rounded-lg font-medium text-stone-700 hover:bg-stone-200/60 dark:text-stone-300 dark:hover:bg-stone-800/60">Contact</a><a href="dashboard.html" class="px-3.5 py-2 rounded-lg font-medium text-stone-700 hover:bg-stone-200/60 dark:text-stone-300 dark:hover:bg-stone-800/60">Dashboard</a>
+        </nav>
+
+        <!-- DESKTOP RIGHT ACTIONS (>= 1100px) -->
+        <div class="hidden min-[1100px]:flex items-center gap-2.5">
+          <button id="header-rtl-toggle-btn" class="px-3 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer">RTL</button>
+          <button id="header-theme-toggle-btn" class="flex items-center justify-center p-2 text-xs font-semibold tracking-wider rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer" aria-label="Toggle Theme">
+            <svg class="w-4 h-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          </button>
+          <button onclick="openBookingModal()" class="px-4 py-2 text-xs font-semibold rounded-lg bg-[#D45B3A] text-white dark:bg-gradient-to-r dark:from-[#FF6B35] dark:to-[#E5A952] dark:text-stone-950 cursor-pointer">Book Workshop</button>
+          <a href="auth.html" class="px-4 py-2 text-xs font-semibold rounded-lg border border-[#D45B3A] text-[#D45B3A] dark:border-amber-400 dark:text-amber-400 hover:bg-[#D45B3A] hover:text-white dark:hover:bg-amber-400 dark:hover:text-stone-950 transition-colors">Login</a>
+        </div>
+
+        <!-- TABLET & MOBILE CONTROLS (< 1100px) -->
+        <div class="flex items-center gap-2 min-[1100px]:hidden">
+          <button id="header-rtl-toggle-btn" class="px-2.5 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer">RTL</button>
+          <button id="header-theme-toggle-btn" class="flex items-center justify-center p-2 text-xs font-semibold tracking-wider rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer" aria-label="Toggle Theme">
+            <svg class="w-4 h-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          </button>
+          <button id="mobile-hamburger-toggle-btn" class="p-2 rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer" aria-label="Open Navigation Menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- SINGLE CLEAN TABLET & MOBILE OFFCANVAS DRAWER -->
+    <div id="mobile-fullscreen-menu" class="hidden fixed inset-0 z-50 bg-[#FAF7F2] dark:bg-[#121110] flex flex-col justify-between p-6 overflow-y-auto min-[1100px]:hidden shadow-2xl">
+      <div>
+        <div class="flex items-center justify-between pb-4 border-b border-[#E5D7C5] dark:border-[#332D27]">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#D45B3A] dark:text-amber-400">Navigation Menu</span>
+          <button onclick="document.getElementById('mobile-fullscreen-menu').classList.add('hidden')" class="p-2 rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer" aria-label="Close Menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+        </div>
+
+        <nav class="flex flex-col gap-2.5 py-6 text-base font-semibold">
+          <a href="index.html" class="px-4 py-3 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Home</a><a href="home-2.html" class="px-4 py-3 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Chef's Table</a><a href="about.html" class="px-4 py-3 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">About</a><a href="services.html" class="px-4 py-3 rounded-xl font-bold bg-[#F2E8DA] text-[#D45B3A] dark:bg-[#2A241F] dark:text-amber-400">Workshops & Passes</a><a href="contact.html" class="px-4 py-3 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Contact</a><a href="dashboard.html" class="px-4 py-3 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Dashboard</a>
+        </nav>
+      </div>
+
+      <div class="space-y-3 pt-6 border-t border-[#E5D7C5] dark:border-[#332D27]">
+        <button onclick="document.getElementById('mobile-fullscreen-menu').classList.add('hidden'); openBookingModal();" class="w-full py-3 text-sm font-semibold rounded-xl bg-[#D45B3A] text-white dark:bg-gradient-to-r dark:from-[#FF6B35] dark:to-[#E5A952] dark:text-stone-950 cursor-pointer">Book Workshop</button>
+        <a href="auth.html" class="block w-full text-center py-3 text-sm font-semibold rounded-xl border border-[#D45B3A] text-[#D45B3A] dark:border-amber-400 dark:text-amber-400 font-semibold">Login to Student Portal</a>
+      </div>
+    </div>
+
+<main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 md:pt-28">
+      <div class="space-y-24 sm:space-y-28 pb-24">
+        
+        <!-- HERO BANNER -->
+        <section id="services-hero-banner" class="relative py-24 px-4 text-center rounded-3xl overflow-hidden border border-[#3D342B] bg-[#141210] text-white shadow-xl">
+          <div class="absolute inset-0 bg-cover bg-center opacity-25" style="background-image: url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1600&q=80');"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0E0D0C] via-black/60 to-black/40"></div>
+
+          <div class="relative z-10 max-w-3xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/20 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-4 border border-amber-500/30">
+              <span>Culinary Curriculum & Passes</span>
+            </div>
+            <h1 class="text-4xl sm:text-5xl text-white tracking-tight" style="font-weight: 580;">
+              Hands-On Masterclasses & Studio Passes
+            </h1>
+            <p class="mt-4 text-base sm:text-lg text-stone-300 leading-relaxed max-w-2xl mx-auto">
+              From fresh pasta extrusion to sourdough starter science, master core culinary techniques at individual marble workstations.
+            </p>
+          </div>
+        </section>
+
+        <!-- CATALOG SECTION -->
+        <section id="services-catalog" class="max-w-7xl mx-auto">
+          
+          <!-- Category Filters -->
+          <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+            <div class="flex flex-wrap items-center gap-2">
+              <button data-filter-btn="all" class="active px-3.5 py-1.5 text-xs font-semibold rounded-lg border bg-[#D45B3A] text-white border-[#D45B3A] dark:bg-amber-500 dark:text-stone-950">All Tracks</button>
+              <button data-filter-btn="Italian" class="px-3.5 py-1.5 text-xs font-semibold rounded-lg border bg-white border-[#E0D5C5] text-stone-700 dark:bg-[#181614] dark:border-[#312B26] dark:text-stone-300">Italian</button>
+              <button data-filter-btn="Indian" class="px-3.5 py-1.5 text-xs font-semibold rounded-lg border bg-white border-[#E0D5C5] text-stone-700 dark:bg-[#181614] dark:border-[#312B26] dark:text-stone-300">Indian</button>
+              <button data-filter-btn="Baking" class="px-3.5 py-1.5 text-xs font-semibold rounded-lg border bg-white border-[#E0D5C5] text-stone-700 dark:bg-[#181614] dark:border-[#312B26] dark:text-stone-300">Baking</button>
+              <button data-filter-btn="French" class="px-3.5 py-1.5 text-xs font-semibold rounded-lg border bg-white border-[#E0D5C5] text-stone-700 dark:bg-[#181614] dark:border-[#312B26] dark:text-stone-300">French</button>
+            </div>
+          </div>
+
+          <!-- Masterclass Cards Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- 1. Italian -->
+            <div data-filter-item="Italian" class="rounded-3xl border p-6 flex flex-col justify-between transition-all bg-white border-[#E8DFD3] dark:bg-[#181614] dark:border-[#312B26]">
+              <div>
+                <div class="relative rounded-2xl overflow-hidden aspect-[16/9] mb-4">
+                  <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80" alt="Italian Pasta" class="w-full h-full object-cover" />
+                  <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-amber-300 text-xs font-semibold uppercase">Italian Track</span>
+                </div>
+                <h3 class="text-xl font-bold text-stone-900 dark:text-stone-100">Artisan Pasta & Hand-Rolled Gnocchi</h3>
+                <p class="mt-2 text-xs text-stone-600 dark:text-stone-400 leading-relaxed">Master Tipo 00 egg dough kneading, brass die extrusions, hand-shaped ravioli, and 3.5 hour Bolognese ragù reduction.</p>
+                
+                <!-- Curriculum Breakdown Details -->
+                <div class="mt-4 p-4 rounded-xl bg-[#FAF6F0] dark:bg-[#201D1A] text-xs space-y-2 text-stone-700 dark:text-stone-300">
+                  <span class="font-bold text-[#D45B3A] dark:text-amber-400 uppercase tracking-wider block text-[10px]">Curriculum Highlights:</span>
+                  <div>✦ Tipo 00 Flour hydration & egg yolk ratio physics</div>
+                  <div>✦ Wood board sfoglia pin-rolling technique</div>
+                  <div>✦ Ricotta spinach filling & ravioli crimping</div>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-stone-200 dark:border-stone-800 flex items-center justify-between">
+                <div>
+                  <span class="text-xs text-stone-500 dark:text-stone-400">Individual Station</span>
+                  <div class="text-2xl font-bold text-stone-900 dark:text-stone-100">$145 <span class="text-xs font-normal text-stone-500">/ person</span></div>
+                </div>
+                <button onclick="openBookingModal('class_it_01')" class="px-5 py-2.5 rounded-xl text-xs font-bold bg-[#D45B3A] text-white dark:bg-[#FF6B35] dark:text-stone-950 shadow-md">Book Workstation ($145)</button>
+              </div>
+            </div>
+
+            <!-- 2. Indian -->
+            <div data-filter-item="Indian" class="rounded-3xl border p-6 flex flex-col justify-between transition-all bg-white border-[#E8DFD3] dark:bg-[#181614] dark:border-[#312B26]">
+              <div>
+                <div class="relative rounded-2xl overflow-hidden aspect-[16/9] mb-4">
+                  <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80" alt="Indian Biryani" class="w-full h-full object-cover" />
+                  <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-amber-300 text-xs font-semibold uppercase">Indian Track</span>
+                </div>
+                <h3 class="text-xl font-bold text-stone-900 dark:text-stone-100">Royal Awadhi Biryani & Spice Tempering</h3>
+                <p class="mt-2 text-xs text-stone-600 dark:text-stone-400 leading-relaxed">Experience dum cooking sealing techniques, whole spice blooming curves, and basmati grain elongation ratio mastery.</p>
+
+                <!-- Curriculum Breakdown Details -->
+                <div class="mt-4 p-4 rounded-xl bg-[#FAF6F0] dark:bg-[#201D1A] text-xs space-y-2 text-stone-700 dark:text-stone-300">
+                  <span class="font-bold text-[#D45B3A] dark:text-amber-400 uppercase tracking-wider block text-[10px]">Curriculum Highlights:</span>
+                  <div>✦ Whole spice essential oil blooming temperatures</div>
+                  <div>✦ Dough seal dough (Dum) pressure retention</div>
+                  <div>✦ Saffron milk infusion & mint layering</div>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-stone-200 dark:border-stone-800 flex items-center justify-between">
+                <div>
+                  <span class="text-xs text-stone-500 dark:text-stone-400">Individual Station</span>
+                  <div class="text-2xl font-bold text-stone-900 dark:text-stone-100">$160 <span class="text-xs font-normal text-stone-500">/ person</span></div>
+                </div>
+                <button onclick="openBookingModal('class_in_02')" class="px-5 py-2.5 rounded-xl text-xs font-bold bg-[#D45B3A] text-white dark:bg-[#FF6B35] dark:text-stone-950 shadow-md">Book Workstation ($160)</button>
+              </div>
+            </div>
+
+            <!-- 3. Baking -->
+            <div data-filter-item="Baking" class="rounded-3xl border p-6 flex flex-col justify-between transition-all bg-white border-[#E8DFD3] dark:bg-[#181614] dark:border-[#312B26]">
+              <div>
+                <div class="relative rounded-2xl overflow-hidden aspect-[16/9] mb-4">
+                  <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Sourdough" class="w-full h-full object-cover" />
+                  <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-amber-300 text-xs font-semibold uppercase">Baking Track</span>
+                </div>
+                <h3 class="text-xl font-bold text-stone-900 dark:text-stone-100">Sourdough Science & French Viennoiserie</h3>
+                <p class="mt-2 text-xs text-stone-600 dark:text-stone-400 leading-relaxed">Wild yeast levain management, high-hydration dough stretch-and-fold sequences, and French croissant lamination.</p>
+
+                <!-- Curriculum Breakdown Details -->
+                <div class="mt-4 p-4 rounded-xl bg-[#FAF6F0] dark:bg-[#201D1A] text-xs space-y-2 text-stone-700 dark:text-stone-300">
+                  <span class="font-bold text-[#D45B3A] dark:text-amber-400 uppercase tracking-wider block text-[10px]">Curriculum Highlights:</span>
+                  <div>✦ Managing acetic vs lactic acid levain acidity</div>
+                  <div>✦ 80% Hydration dough gluten windowpane test</div>
+                  <div>✦ 27-Layer butter block lamination technique</div>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-stone-200 dark:border-stone-800 flex items-center justify-between">
+                <div>
+                  <span class="text-xs text-stone-500 dark:text-stone-400">Individual Station</span>
+                  <div class="text-2xl font-bold text-stone-900 dark:text-stone-100">$185 <span class="text-xs font-normal text-stone-500">/ person</span></div>
+                </div>
+                <button onclick="openBookingModal('class_bk_03')" class="px-5 py-2.5 rounded-xl text-xs font-bold bg-[#D45B3A] text-white dark:bg-[#FF6B35] dark:text-stone-950 shadow-md">Book Workstation ($185)</button>
+              </div>
+            </div>
+
+            <!-- 4. French -->
+            <div data-filter-item="French" class="rounded-3xl border p-6 flex flex-col justify-between transition-all bg-white border-[#E8DFD3] dark:bg-[#181614] dark:border-[#312B26]">
+              <div>
+                <div class="relative rounded-2xl overflow-hidden aspect-[16/9] mb-4">
+                  <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="French Bistro" class="w-full h-full object-cover" />
+                  <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-amber-300 text-xs font-semibold uppercase">French Track</span>
+                </div>
+                <h3 class="text-xl font-bold text-stone-900 dark:text-stone-100">Classic French Bistro & Red Wine Reductions</h3>
+                <p class="mt-2 text-xs text-stone-600 dark:text-stone-400 leading-relaxed">Learn French pan-searing techniques, fond deglazing, emulsified Béarnaise, and Bordeaux demi-glace reductions.</p>
+
+                <!-- Curriculum Breakdown Details -->
+                <div class="mt-4 p-4 rounded-xl bg-[#FAF6F0] dark:bg-[#201D1A] text-xs space-y-2 text-stone-700 dark:text-stone-300">
+                  <span class="font-bold text-[#D45B3A] dark:text-amber-400 uppercase tracking-wider block text-[10px]">Curriculum Highlights:</span>
+                  <div>✦ Maillard reaction control on cast iron</div>
+                  <div>✦ Clarified butter egg emulsion stability</div>
+                  <div>✦ Red wine pan deglazing & bone marrow fond</div>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-stone-200 dark:border-stone-800 flex items-center justify-between">
+                <div>
+                  <span class="text-xs text-stone-500 dark:text-stone-400">Individual Station</span>
+                  <div class="text-2xl font-bold text-stone-900 dark:text-stone-100">$175 <span class="text-xs font-normal text-stone-500">/ person</span></div>
+                </div>
+                <button onclick="openBookingModal('class_fr_04')" class="px-5 py-2.5 rounded-xl text-xs font-bold bg-[#D45B3A] text-white dark:bg-[#FF6B35] dark:text-stone-950 shadow-md">Book Workstation ($175)</button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- PRICING TIERS SECTION -->
+        <section id="pricing-tiers-section" class="max-w-7xl mx-auto pt-12 border-t border-stone-200 dark:border-stone-800">
+          <div class="text-center max-w-2xl mx-auto mb-10">
+            <span class="text-xs uppercase tracking-widest font-semibold text-[#D45B3A] dark:text-amber-400">Studio Passes & Memberships</span>
+            <h2 class="text-3xl text-stone-900 dark:text-stone-100 mt-1" style="font-weight: 540;">Flexible Culinary Passes</h2>
+            <p class="mt-2 text-xs text-stone-600 dark:text-stone-400">Save on multi-class bundles or gain access to our study lounge and recipe vault.</p>
+          </div>
+
+          <div class="card-grid-3 max-w-7xl mx-auto">
+            <!-- Tier 1 -->
+            <div class="rounded-3xl border p-8 flex flex-col justify-between bg-white border-[#E8DFD3] dark:bg-[#181614] dark:border-[#312B26]">
+              <div>
+                <h3 class="text-xl font-bold text-stone-900 dark:text-stone-100">Single Workshop Pass</h3>
+                <p class="text-xs text-stone-500 dark:text-stone-400 mt-1">Perfect for date nights or first-time students.</p>
+                <div class="mt-6 mb-6">
+                  <span class="text-4xl font-bold text-stone-900 dark:text-stone-100">$145</span>
+                  <span class="text-xs text-stone-500 dark:text-stone-400 ml-1.5 font-medium">/ workshop</span>
+                </div>
+                <div class="pt-6 border-t border-stone-200 dark:border-stone-700/30 space-y-3 text-xs text-stone-700 dark:text-stone-300">
+                  <div>✓ 3.5 Hours hands-on workstation</div>
+                  <div>✓ All organic farm ingredients included</div>
+                  <div>✓ Digital chef recipe notes PDF</div>
+                  <div>✓ Wine pairing & communal dinner</div>
+                </div>
+              </div>
+              <div class="mt-8 pt-6 border-t border-stone-200 dark:border-stone-700/30">
+                <button onclick="openBookingModal()" class="w-full py-3 text-center text-xs font-bold rounded-xl border border-stone-300 text-stone-800 dark:border-stone-700 dark:text-stone-200">Select Pass</button>
+              </div>
+            </div>
+
+            <!-- Tier 2 (Popular) -->
+            <div class="relative rounded-3xl border p-8 flex flex-col justify-between bg-[#FFFDF9] border-[#D45B3A] shadow-2xl dark:bg-[#201D1A] dark:border-amber-500">
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase bg-[#D45B3A] text-white dark:bg-gradient-to-r dark:from-[#FF6B35] dark:to-[#E5A952] dark:text-stone-950">Most Popular</span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-stone-900 dark:text-stone-100">3-Class Passport</h3>
+                <p class="text-xs text-stone-500 dark:text-stone-400 mt-1">Explore multiple cuisine tracks with savings.</p>
+                <div class="mt-6 mb-6">
+                  <span class="text-4xl font-bold text-stone-900 dark:text-stone-100">$390</span>
+                  <span class="text-xs text-stone-500 dark:text-stone-400 ml-1.5 font-medium">/ 3 workshops</span>
+                </div>
+                <div class="pt-6 border-t border-stone-200 dark:border-stone-700/30 space-y-3 text-xs text-stone-700 dark:text-stone-300">
+                  <div>✓ Valid across all 8 cuisine masterclasses</div>
+                  <div>✓ Priority 48-hour slot reservation</div>
+                  <div>✓ Permanent Recipe Vault access</div>
+                  <div>✓ Save $45 compared to single passes</div>
+                </div>
+              </div>
+              <div class="mt-8 pt-6 border-t border-stone-200 dark:border-stone-700/30">
+                <button onclick="openBookingModal()" class="w-full py-3 text-center text-xs font-bold rounded-xl bg-[#D45B3A] text-white dark:bg-gradient-to-r dark:from-[#FF6B35] dark:to-[#E5A952] dark:text-stone-950">Select Passport</button>
+              </div>
+            </div>
+
+            <!-- Tier 3 (Centered on Row 2 for md screens) -->
+            <div class="rounded-3xl border p-8 flex flex-col justify-between bg-white border-[#E8DFD3] dark:bg-[#181614] dark:border-[#312B26]">
+              <div>
+                <h3 class="text-xl font-bold text-stone-900 dark:text-stone-100">Master Guild Pass</h3>
+                <p class="text-xs text-stone-500 dark:text-stone-400 mt-1">Unlimited workshops & study lounge access.</p>
+                <div class="mt-6 mb-6">
+                  <span class="text-4xl font-bold text-stone-900 dark:text-stone-100">$890</span>
+                  <span class="text-xs text-stone-500 dark:text-stone-400 ml-1.5 font-medium">/ quarter</span>
+                </div>
+                <div class="pt-6 border-t border-stone-200 dark:border-stone-700/30 space-y-3 text-xs text-stone-700 dark:text-stone-300">
+                  <div>✓ Unlimited weekday & weekend classes</div>
+                  <div>✓ 24/7 Culinary library & lounge access</div>
+                  <div>✓ 1-on-1 Executive Chef mentorship</div>
+                  <div>✓ Complimentary Chef’s Table evening seat</div>
+                </div>
+              </div>
+              <div class="mt-8 pt-6 border-t border-stone-200 dark:border-stone-700/30">
+                <button onclick="openBookingModal()" class="w-full py-3 text-center text-xs font-bold rounded-xl border border-stone-300 text-stone-800 dark:border-stone-700 dark:text-stone-200">Select Guild Pass</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- RICH MULTI-COLUMN FOOTER -->
+        <!-- COMPACT ELEGANT FOOTER -->
+        <!-- COMPACT ELEGANT FOOTER WITH BREATHABLE TOP MARGIN -->
+    <footer id="main-app-footer" class="mt-20 md:mt-28 pt-12 pb-8 border-t bg-[#F5EFE6] text-stone-700 border-[#E2D5C3] dark:bg-[#0E0D0C] dark:text-stone-300 dark:border-[#26221E]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-8 border-b border-[#E2D5C3] dark:border-[#26221E]">
+          
+          <!-- Col 1: Brand Info & 100% Exact Header Logo Replica -->
+          <div class="space-y-3">
+            <a href="index.html" class="inline-flex items-center gap-2.5 focus:outline-none text-left">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
+                <rect width="40" height="40" rx="10" class="fill-[#F4ECE1] dark:fill-[#231F1C] stroke-[#E25822] dark:stroke-[#E5A952]" stroke-width="1.5"/>
+                <path d="M20 9C20 9 24.5 13.5 24.5 18.5C24.5 22.5 21.5 25 18 25C14.5 25 12 22 12 18.5C12 15 14 12.5 15.5 11C15 13 16 14.5 17.5 14.5C19 14.5 19.5 13 19.5 11C19.5 10 20 9 20 9Z" fill="url(#flame_grad_foot)"/>
+                <path d="M26 29L21 24M21 24L22.5 22.5M21 24L19.5 25.5" class="stroke-[#D45B3A] dark:stroke-[#E5A952]" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="28" cy="14" r="2" class="fill-[#E25822] dark:fill-[#FF6B35]"/>
+                <defs>
+                  <linearGradient id="flame_grad_foot" x1="12" y1="9" x2="25" y2="25" gradientUnits="userSpaceOnUse">
+                    <stop class="stop-color-[#E25822] dark:stop-color-[#FF6B35]" stop-color="#E25822"/>
+                    <stop offset="1" class="stop-color-[#D45B3A] dark:stop-color-[#E5A952]" stop-color="#D45B3A"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="flex flex-col leading-none">
+                <span class="text-xl tracking-tight font-semibold text-stone-900 dark:text-white" style="font-weight: 580;">Culinara</span>
+                <span class="text-[10px] tracking-widest uppercase font-medium mt-0.5 text-stone-500 dark:text-amber-400/90">CULINARY STUDIO</span>
+              </div>
+            </a>
+            <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
+              Artisanal culinary studio offering 100% hands-on masterclasses, marble workstation learning, and sommelier dining experiences.
+            </p>
+            <div class="text-xs text-stone-600 dark:text-stone-400 space-y-0.5">
+              <p>📍 420 Artisan Lane, San Francisco, CA</p>
+              <p>📞 +1 (415) 890-7621 • ✉️ contact@culinara.studio</p>
+            </div>
+          </div>
+
+          <!-- Col 2: Navigation Links -->
+          <div class="space-y-2">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100">Studio Pages</h4>
+            <ul class="space-y-1.5 text-xs">
+              <li><a href="index.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Home Studio</a></li>
+              <li><a href="home-2.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Chef's Table</a></li>
+              <li><a href="services.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Workshops & Passes</a></li>
+              <li><a href="about.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">About Our Kitchen</a></li>
+              <li><a href="gallery.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Photo Gallery</a></li>
+              <li><a href="blog.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Culinary Journal</a></li>
+              <li><a href="contact.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Contact Concierge</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Cuisine Masterclasses -->
+          <div class="space-y-2">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100">Cuisine Tracks</h4>
+            <ul class="space-y-1.5 text-xs">
+              <li><a href="services.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Italian Egg-Pasta Craft</a></li>
+              <li><a href="services.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Royal Awadhi Biryani</a></li>
+              <li><a href="services.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Sourdough & Viennoiserie</a></li>
+              <li><a href="services.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">French Bistro Reductions</a></li>
+              <li><a href="services.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Artisanal Crystal Dim Sum</a></li>
+              <li><a href="services.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Neapolitan Wood-Fired Pizza</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Newsletter Signup -->
+          <div class="space-y-2">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100">Chef’s Journal</h4>
+            <p class="text-xs text-stone-600 dark:text-stone-400">Subscribe for weekly chef notes, ingredient tips, and 48h priority alerts for guest masterclasses.</p>
+            <form onsubmit="event.preventDefault(); showToast('Subscribed to Chef Journal!', 'success');" class="space-y-2 pt-1">
+              <input type="email" required placeholder="Your email address..." class="w-full px-3 py-2 text-xs rounded-lg border bg-white border-[#DFD3C3] text-stone-800 dark:bg-[#1C1A17] dark:border-[#38302A] dark:text-stone-100" />
+              <button type="submit" class="w-full py-2 px-3 text-xs font-bold rounded-lg bg-[#D45B3A] text-white dark:bg-[#FF6B35] dark:text-stone-950">Join Journal</button>
+            </form>
+          </div>
+
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-stone-500">
+          <span>&copy; 2026 Culinara Culinary Studio. All rights reserved.</span>
+          <button id="footer-back-to-top-btn" class="px-3 py-1.5 rounded-lg text-xs font-semibold border bg-white border-[#DFD4C5] text-stone-800 dark:bg-[#1E1B18] dark:border-[#38312B] dark:text-amber-400 cursor-pointer">Back to Top ↑</button>
+        </div>
+      </div>
+    </footer>
+
+    <!-- MODALS -->
+    <div id="class-booking-modal-backdrop" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-xs overflow-y-auto">
+      <div id="class-booking-modal-card" class="relative w-full max-w-xl rounded-2xl border shadow-2xl bg-[#FAF8F5] border-[#E5D7C5] text-stone-900 dark:bg-[#181614] dark:border-[#362F29] dark:text-stone-100"></div>
+    </div>
+    <div id="recipe-notes-modal-backdrop" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-xs overflow-y-auto">
+      <div id="recipe-notes-modal-card" class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl border shadow-2xl bg-[#FAF8F5] border-[#E5D7C5] text-stone-900 dark:bg-[#181614] dark:border-[#362F29] dark:text-stone-100"></div>
+    </div>
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none"></div>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

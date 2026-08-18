@@ -1,0 +1,6 @@
+{
+  "name": "Culinara",
+  "description": "Culinary Workshop Studio and Cooking Masterclass Center with interactive class booking, student dashboard, recipe vault, and chef's table experiences.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

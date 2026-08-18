@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Culinara | Chef's Table & Open-Flame Theater</title>
+    <meta name="description" content="Experience high-end open-flame cooking, Michelin guest chef series, and intimate omakase dining at Culinara." />
+    
+    <script>
+      (function() {
+        var theme = localStorage.getItem('culinara_theme') || 'light';
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+        }
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,580;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/dark-mode.css" />
+    <link rel="stylesheet" href="assets/css/rtl.css" />
+  </head>
+  <body class="min-h-screen flex flex-col font-sans transition-colors duration-200 bg-[#FAF7F2] text-[#2C2723] dark:bg-[#121110] dark:text-[#EDE8E1]">
+    
+    <!-- STICKY HEADER -->
+                    <header id="main-sticky-header" class="fixed top-0 left-0 right-0 z-40 bg-[#FAF7F2] border-b border-[#E8DFC8] dark:bg-[#121110] dark:border-[#2A2622] shadow-xs transition-all duration-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        
+              <!-- BRAND LOGO -->
+      <a href="index.html" class="inline-flex items-center gap-2.5 focus:outline-none text-left">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+          class="flex-shrink-0">
+          <rect width="40" height="40" rx="10"
+            class="fill-[#F4ECE1] dark:fill-[#231F1C] stroke-[#E25822] dark:stroke-[#E5A952]" stroke-width="1.5" />
+          <path
+            d="M20 9C20 9 24.5 13.5 24.5 18.5C24.5 22.5 21.5 25 18 25C14.5 25 12 22 12 18.5C12 15 14 12.5 15.5 11C15 13 16 14.5 17.5 14.5C19 14.5 19.5 13 19.5 11C19.5 10 20 9 20 9Z"
+            fill="url(#flame_grad_hdr)" />
+          <path d="M26 29L21 24M21 24L22.5 22.5M21 24L19.5 25.5" class="stroke-[#D45B3A] dark:stroke-[#E5A952]"
+            stroke-width="2" stroke-linecap="round" />
+          <circle cx="28" cy="14" r="2" class="fill-[#E25822] dark:fill-[#FF6B35]" />
+          <defs>
+            <linearGradient id="flame_grad_hdr" x1="12" y1="9" x2="25" y2="25" gradientUnits="userSpaceOnUse">
+              <stop class="stop-color-[#E25822] dark:stop-color-[#FF6B35]" stop-color="#E25822" />
+              <stop offset="1" class="stop-color-[#D45B3A] dark:stop-color-[#E5A952]" stop-color="#D45B3A" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="flex flex-col leading-none">
+          <span class="text-xl tracking-tight font-semibold text-stone-900 dark:text-white"
+            style="font-weight: 580;">Culinara</span>
+          <span
+            class="text-[10px] tracking-widest uppercase font-medium mt-0.5 text-stone-500 dark:text-amber-400/90">CULINARY
+            STUDIO</span>
+        </div>
+      </a>
+
+        <!-- DESKTOP NAVIGATION (>= 1100px) -->
+        <nav class="hidden min-[1100px]:flex items-center gap-1.5 lg:gap-2 text-[0.95rem]">
+          <a href="index.html" class="px-3.5 py-2 rounded-lg font-medium text-stone-700 hover:bg-stone-200/60 dark:text-stone-300 dark:hover:bg-stone-800/60">Home</a><a href="home-2.html" class="px-3.5 py-2 rounded-lg font-semibold bg-[#F2E8DA] text-[#D45B3A] dark:bg-[#2A241F] dark:text-amber-400">Chef's Table</a><a href="about.html" class="px-3.5 py-2 rounded-lg font-medium text-stone-700 hover:bg-stone-200/60 dark:text-stone-300 dark:hover:bg-stone-800/60">About</a><a href="services.html" class="px-3.5 py-2 rounded-lg font-medium text-stone-700 hover:bg-stone-200/60 dark:text-stone-300 dark:hover:bg-stone-800/60">Workshops & Passes</a><a href="contact.html" class="px-3.5 py-2 rounded-lg font-medium text-stone-700 hover:bg-stone-200/60 dark:text-stone-300 dark:hover:bg-stone-800/60">Contact</a><a href="dashboard.html" class="px-3.5 py-2 rounded-lg font-medium text-stone-700 hover:bg-stone-200/60 dark:text-stone-300 dark:hover:bg-stone-800/60">Dashboard</a>
+        </nav>
+
+        <!-- DESKTOP RIGHT ACTIONS (>= 1100px) -->
+        <div class="hidden min-[1100px]:flex items-center gap-2.5">
+          <button id="header-rtl-toggle-btn" class="px-3 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer">RTL</button>
+          <button id="header-theme-toggle-btn" class="flex items-center justify-center p-2 text-xs font-semibold tracking-wider rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer" aria-label="Toggle Theme">
+            <svg class="w-4 h-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          </button>
+          <button onclick="openBookingModal()" class="px-4 py-2 text-xs font-semibold rounded-lg bg-[#D45B3A] text-white dark:bg-gradient-to-r dark:from-[#FF6B35] dark:to-[#E5A952] dark:text-stone-950 cursor-pointer">Book Workshop</button>
+          <a href="auth.html" class="px-4 py-2 text-xs font-semibold rounded-lg border border-[#D45B3A] text-[#D45B3A] dark:border-amber-400 dark:text-amber-400 hover:bg-[#D45B3A] hover:text-white dark:hover:bg-amber-400 dark:hover:text-stone-950 transition-colors">Login</a>
+        </div>
+
+        <!-- TABLET & MOBILE CONTROLS (< 1100px) -->
+        <div class="flex items-center gap-2 min-[1100px]:hidden">
+          <button id="header-rtl-toggle-btn" class="px-2.5 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer">RTL</button>
+          <button id="header-theme-toggle-btn" class="flex items-center justify-center p-2 text-xs font-semibold tracking-wider rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer" aria-label="Toggle Theme">
+            <svg class="w-4 h-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          </button>
+          <button id="mobile-hamburger-toggle-btn" class="p-2 rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer" aria-label="Open Navigation Menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- SINGLE CLEAN TABLET & MOBILE OFFCANVAS DRAWER -->
+    <div id="mobile-fullscreen-menu" class="hidden fixed inset-0 z-50 bg-[#FAF7F2] dark:bg-[#121110] flex flex-col justify-between p-6 overflow-y-auto min-[1100px]:hidden shadow-2xl">
+      <div>
+        <div class="flex items-center justify-between pb-4 border-b border-[#E5D7C5] dark:border-[#332D27]">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#D45B3A] dark:text-amber-400">Navigation Menu</span>
+          <button onclick="document.getElementById('mobile-fullscreen-menu').classList.add('hidden')" class="p-2 rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer" aria-label="Close Menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+        </div>
+
+        <nav class="flex flex-col gap-2.5 py-6 text-base font-semibold">
+          <a href="index.html" class="px-4 py-3 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Home</a><a href="home-2.html" class="px-4 py-3 rounded-xl font-bold bg-[#F2E8DA] text-[#D45B3A] dark:bg-[#2A241F] dark:text-amber-400">Chef's Table</a><a href="about.html" class="px-4 py-3 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">About</a><a href="services.html" class="px-4 py-3 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Workshops & Passes</a><a href="contact.html" class="px-4 py-3 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Contact</a><a href="dashboard.html" class="px-4 py-3 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Dashboard</a>
+        </nav>
+      </div>
+
+      <div class="space-y-3 pt-6 border-t border-[#E5D7C5] dark:border-[#332D27]">
+        <button onclick="document.getElementById('mobile-fullscreen-menu').classList.add('hidden'); openBookingModal();" class="w-full py-3 text-sm font-semibold rounded-xl bg-[#D45B3A] text-white dark:bg-gradient-to-r dark:from-[#FF6B35] dark:to-[#E5A952] dark:text-stone-950 cursor-pointer">Book Workshop</button>
+        <a href="auth.html" class="block w-full text-center py-3 text-sm font-semibold rounded-xl border border-[#D45B3A] text-[#D45B3A] dark:border-amber-400 dark:text-amber-400 font-semibold">Login to Student Portal</a>
+      </div>
+    </div>
+
+<main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 md:pt-28">
+      <div class="space-y-20 sm:space-y-24 pb-16">
+        
+        <!-- SECTION 1: NOIR HERO BANNER -->
+        <section id="home2-hero-section" class="relative py-20 sm:py-28 px-4 text-center rounded-3xl overflow-hidden border border-[#3A322A] bg-[#141210] text-white shadow-2xl">
+          <div class="absolute inset-0 bg-cover bg-center opacity-35" style="background-image: url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1600&q=80');"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#121110] via-black/75 to-black/50"></div>
+
+          <div class="relative z-10 max-w-4xl mx-auto">
+            <span class="px-4 py-1.5 rounded-full bg-[#221B15] text-amber-400 text-xs font-semibold uppercase tracking-widest mb-6 inline-block border border-amber-500/30">
+              🔥 Studio D: The Nocturne Chef’s Table Salon
+            </span>
+
+            <h1 class="text-4xl sm:text-6xl text-white tracking-tight leading-tight" style="font-weight: 580;">
+              Intimate Gastronomy, <br />
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B35] via-[#E5A952] to-[#F7C57E]">
+                Under Copper & Flame.
+              </span>
+            </h1>
+
+            <p class="mt-6 text-base sm:text-xl text-stone-300 leading-relaxed max-w-2xl mx-auto font-normal">
+              An exclusive 8-seat culinary immersion. Work side-by-side with executive chefs across binchotan charcoal searing, molecular spherification, and sommelier-curated reserve vintage pairings.
+            </p>
+
+            <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <button onclick="openBookingModal('class_om_07')" class="px-8 py-3.5 rounded-xl font-bold text-sm shadow-xl transition-all duration-200 bg-gradient-to-r from-[#FF6B35] to-[#E5A952] text-stone-950 hover:brightness-110">
+                📅 Reserve Chef’s Table Seat ($220)
+              </button>
+              <a href="services.html" class="px-8 py-3.5 rounded-xl font-semibold text-sm border border-[#44382E] bg-[#1E1915] text-stone-200 hover:bg-[#2A231D] transition-all">
+                🍷 View Evening Omakase Menu
+              </a>
+            </div>
+
+            <!-- Visual Stats Row -->
+            <div class="mt-12 pt-8 border-t border-[#2A231C] w-full grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+              <div>
+                <span class="text-2xl font-bold text-amber-400">8</span>
+                <span class="text-xs text-stone-300 block mt-0.5">VIP Seats per Session</span>
+              </div>
+              <div>
+                <span class="text-2xl font-bold text-amber-400">6</span>
+                <span class="text-xs text-stone-300 block mt-0.5">Courses Prepared & Plated</span>
+              </div>
+              <div>
+                <span class="text-2xl font-bold text-amber-400">Grand Cru</span>
+                <span class="text-xs text-stone-300 block mt-0.5">Sommelier Wine Pairings</span>
+              </div>
+              <div>
+                <span class="text-2xl font-bold text-amber-400">100%</span>
+                <span class="text-xs text-stone-300 block mt-0.5">Hands-On Precision Work</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 2: EVENING SALON MASTERCLASSES -->
+        <section id="home2-evening-classes" class="max-w-7xl mx-auto">
+          <div class="flex flex-col items-start max-w-2xl mb-10">
+            <span class="text-xs uppercase tracking-widest font-semibold text-[#D45B3A] dark:text-amber-400">Evening Salon Masterclasses</span>
+            <h2 class="text-3xl sm:text-4xl text-stone-900 dark:text-stone-100 mt-2" style="font-weight: 540;">Curated Chef’s Table Workshops</h2>
+            <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400 mt-2 leading-relaxed">Designed for curious food connoisseurs. Each workshop concludes with an intimate candlelit dinner and private recipe vault access.</p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- 1 -->
+            <div class="rounded-2xl border p-6 flex flex-col justify-between transition-all duration-300 bg-white border-[#E8DFD3] dark:bg-[#181614] dark:border-[#362E27] dark:hover:border-amber-500/50">
+              <div>
+                <div class="relative rounded-xl overflow-hidden aspect-[16/9] mb-5 group">
+                  <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="French Bistro" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                  <div class="absolute top-3 left-3">
+                    <span class="px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider backdrop-blur-md bg-amber-500/90 text-stone-950">French</span>
+                  </div>
+                  <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
+                    <span>🕒 4 Hours</span>
+                    <span class="font-bold text-sm bg-black/60 px-2.5 py-1 rounded backdrop-blur-md">$175 / person</span>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="text-xs text-[#D45B3A] dark:text-amber-400 font-semibold uppercase tracking-wider">Hearth Salon</span>
+                  <span class="text-stone-400">•</span>
+                  <span class="text-xs text-amber-600 dark:text-amber-500 font-bold">★ 4.98</span>
+                </div>
+
+                <h3 class="text-xl font-semibold text-stone-900 dark:text-stone-100 hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Classic French Bistro & Red Wine Reductions</h3>
+                <p class="mt-3 text-xs leading-relaxed text-stone-600 dark:text-stone-400">Learn French pan-searing techniques, fond deglazing, emulsified Béarnaise, and Bordeaux demi-glace reductions.</p>
+
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="text-[11px] px-2.5 py-1 rounded-md border font-medium bg-[#F5EFE6] border-[#DFD4C5] text-stone-800 dark:bg-[#221E1A] dark:border-[#383028] dark:text-stone-300">✦ Pan-seared Duck Breast</span>
+                  <span class="text-[11px] px-2.5 py-1 rounded-md border font-medium bg-[#F5EFE6] border-[#DFD4C5] text-stone-800 dark:bg-[#221E1A] dark:border-[#383028] dark:text-stone-300">✦ Bordeaux Demi-Glace</span>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-stone-200 dark:border-stone-700/30 flex items-center gap-3">
+                <button onclick="openBookingModal('class_fr_04')" class="flex-1 py-3 text-xs font-bold rounded-xl text-center bg-[#D45B3A] text-white dark:bg-gradient-to-r dark:from-[#FF6B35] dark:to-[#E5A952] dark:text-stone-950">Reserve Evening Seat</button>
+                <a href="services.html" class="py-3 px-4 text-xs font-semibold rounded-xl border border-stone-300 text-stone-800 hover:bg-stone-100 dark:border-stone-700 dark:text-stone-300 dark:hover:bg-stone-800">Full Syllabus</a>
+              </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="rounded-2xl border p-6 flex flex-col justify-between transition-all duration-300 bg-white border-[#E8DFD3] dark:bg-[#181614] dark:border-[#362E27] dark:hover:border-amber-500/50">
+              <div>
+                <div class="relative rounded-xl overflow-hidden aspect-[16/9] mb-5 group">
+                  <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80" alt="Chef's Table" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                  <div class="absolute top-3 left-3">
+                    <span class="px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider backdrop-blur-md bg-amber-500/90 text-stone-950">Omakase</span>
+                  </div>
+                  <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
+                    <span>🕒 4.5 Hours</span>
+                    <span class="font-bold text-sm bg-black/60 px-2.5 py-1 rounded backdrop-blur-md">$220 / person</span>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="text-xs text-[#D45B3A] dark:text-amber-400 font-semibold uppercase tracking-wider">Chef's Table Counter</span>
+                  <span class="text-stone-400">•</span>
+                  <span class="text-xs text-amber-600 dark:text-amber-500 font-bold">★ 5.00</span>
+                </div>
+
+                <h3 class="text-xl font-semibold text-stone-900 dark:text-stone-100 hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">6-Course Hearth Fire & Sommelier Pairing</h3>
+                <p class="mt-3 text-xs leading-relaxed text-stone-600 dark:text-stone-400">Intimate open-flame theater dinner paired with Grand Cru wines and live chef plating breakdowns.</p>
+
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="text-[11px] px-2.5 py-1 rounded-md border font-medium bg-[#F5EFE6] border-[#DFD4C5] text-stone-800 dark:bg-[#221E1A] dark:border-[#383028] dark:text-stone-300">✦ Wood-Fired Scallops</span>
+                  <span class="text-[11px] px-2.5 py-1 rounded-md border font-medium bg-[#F5EFE6] border-[#DFD4C5] text-stone-800 dark:bg-[#221E1A] dark:border-[#383028] dark:text-stone-300">✦ Sommelier Pairings</span>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-stone-200 dark:border-stone-700/30 flex items-center gap-3">
+                <button onclick="openBookingModal('class_om_07')" class="flex-1 py-3 text-xs font-bold rounded-xl text-center bg-[#D45B3A] text-white dark:bg-gradient-to-r dark:from-[#FF6B35] dark:to-[#E5A952] dark:text-stone-950">Reserve Evening Seat</button>
+                <a href="services.html" class="py-3 px-4 text-xs font-semibold rounded-xl border border-stone-300 text-stone-800 hover:bg-stone-100 dark:border-stone-700 dark:text-stone-300 dark:hover:bg-stone-800">Full Syllabus</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 3: INTERACTIVE CULINARY LAB & MASTERCLASS FEATURES -->
+        <section id="home2-features-tab-section" class="max-w-7xl mx-auto p-6 sm:p-8 rounded-3xl border bg-[#FAF5EE] border-[#E2D5C3] dark:bg-[#161412] dark:border-[#332D27]">
+          <div class="text-center max-w-2xl mx-auto mb-8">
+            <span class="text-xs uppercase tracking-widest font-semibold text-[#D45B3A] dark:text-amber-400">Culinary Lab Insights</span>
+            <h2 class="text-3xl text-stone-900 dark:text-stone-100 mt-1" style="font-weight: 540;">Masterclass Science & Equipment</h2>
+            <p class="text-xs text-stone-600 dark:text-stone-400 mt-2">Explore the technical precision, specialized tools, and sommelier vintage pairings taught at our hearth counter.</p>
+
+            <div class="mt-6 flex flex-wrap items-center justify-center gap-2">
+              <button data-tab-btn="technique" class="active px-4 py-2 text-xs font-semibold rounded-xl border bg-[#D45B3A] text-white border-[#D45B3A] dark:bg-amber-500 dark:text-stone-950">Techniques & Science</button>
+              <button data-tab-btn="equipment" class="px-4 py-2 text-xs font-semibold rounded-xl border bg-white border-[#E0D5C5] text-stone-700 dark:bg-[#181614] dark:border-[#312B26] dark:text-stone-300">Specialized Equipment</button>
+              <button data-tab-btn="pairing" class="px-4 py-2 text-xs font-semibold rounded-xl border bg-white border-[#E0D5C5] text-stone-700 dark:bg-[#181614] dark:border-[#312B26] dark:text-stone-300">Sommelier Pairings</button>
+            </div>
+          </div>
+
+          <!-- Tab Content 1: Techniques -->
+          <div data-tab-content="technique" class="card-grid-3">
+            <div class="p-5 rounded-2xl border space-y-2 bg-white border-[#E8DFD3] dark:bg-[#1C1A17] dark:border-[#332C26]">
+              <div class="w-10 h-10 rounded-xl bg-orange-500/15 text-[#D45B3A] dark:text-orange-400 flex items-center justify-center font-bold text-sm">01</div>
+              <h3 class="text-base font-semibold text-stone-900 dark:text-stone-100">Maillard Caramelization</h3>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">Understanding amino acid & sugar breakdowns at high temperatures for deep crust savory glazes.</p>
+            </div>
+
+            <div class="p-5 rounded-2xl border space-y-2 bg-white border-[#E8DFD3] dark:bg-[#1C1A17] dark:border-[#332C26]">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-sm">02</div>
+              <h3 class="text-base font-semibold text-stone-900 dark:text-stone-100">Lipid Emulsifications</h3>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">Bonding butterfat molecules with acidic reductions for velvet hollandaise and pan sauces.</p>
+            </div>
+
+            <div class="p-5 rounded-2xl border space-y-2 bg-white border-[#E8DFD3] dark:bg-[#1C1A17] dark:border-[#332C26]">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm">03</div>
+              <h3 class="text-base font-semibold text-stone-900 dark:text-stone-100">Spherification & Textures</h3>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">Direct sodium alginate calcium chloride baths to produce bursting citrus pearls and herb caviar.</p>
+            </div>
+          </div>
+
+          <!-- Tab Content 2: Equipment -->
+          <div data-tab-content="equipment" class="card-grid-3 hidden md:">
+            <div class="p-5 rounded-2xl border space-y-2 bg-white border-[#E8DFD3] dark:bg-[#1C1A17] dark:border-[#332C26]">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-sm">🔥</div>
+              <h3 class="text-base font-semibold text-stone-900 dark:text-stone-100">Binchotan White Charcoal</h3>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">Smokeless Japanese oak charcoal reaching 1000°C for instantaneous infrared meat tataki searing.</p>
+            </div>
+
+            <div class="p-5 rounded-2xl border space-y-2 bg-white border-[#E8DFD3] dark:bg-[#1C1A17] dark:border-[#332C26]">
+              <div class="w-10 h-10 rounded-xl bg-orange-500/15 text-orange-600 dark:text-orange-400 flex items-center justify-center font-bold text-sm">🔪</div>
+              <h3 class="text-base font-semibold text-stone-900 dark:text-stone-100">Japanese Damascus Knives</h3>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">VG-10 67-layer hammered steel blades provided at each station with single-stroke slicing tutorials.</p>
+            </div>
+
+            <div class="p-5 rounded-2xl border space-y-2 bg-white border-[#E8DFD3] dark:bg-[#1C1A17] dark:border-[#332C26]">
+              <div class="w-10 h-10 rounded-xl bg-purple-500/15 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-sm">🌡️</div>
+              <h3 class="text-base font-semibold text-stone-900 dark:text-stone-100">Sous-Vide Thermal Circulators</h3>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">Precision water baths calibrated to 0.1°C for effortless edge-to-edge tender game and poultry.</p>
+            </div>
+          </div>
+
+          <!-- Tab Content 3: Pairings -->
+          <div data-tab-content="pairing" class="card-grid-3 hidden md:">
+            <div class="p-5 rounded-2xl border space-y-2 bg-white border-[#E8DFD3] dark:bg-[#1C1A17] dark:border-[#332C26]">
+              <div class="w-10 h-10 rounded-xl bg-purple-500/15 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-sm">🍷</div>
+              <h3 class="text-base font-semibold text-stone-900 dark:text-stone-100">Tuscan Sangiovese DOCG</h3>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">High acidity and delicate tannins to cut through rich egg-yolk tagliatelle and slow-simmered bolognese.</p>
+            </div>
+
+            <div class="p-5 rounded-2xl border space-y-2 bg-white border-[#E8DFD3] dark:bg-[#1C1A17] dark:border-[#332C26]">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-sm">🍇</div>
+              <h3 class="text-base font-semibold text-stone-900 dark:text-stone-100">Off-Dry Mosel Riesling</h3>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">Natural residual grape sugars that cool capsicum heat and elevate Kashmiri saffron biryani aromatics.</p>
+            </div>
+
+            <div class="p-5 rounded-2xl border space-y-2 bg-white border-[#E8DFD3] dark:bg-[#1C1A17] dark:border-[#332C26]">
+              <div class="w-10 h-10 rounded-xl bg-rose-500/15 text-rose-600 dark:text-rose-400 flex items-center justify-center font-bold text-sm">🍶</div>
+              <h3 class="text-base font-semibold text-stone-900 dark:text-stone-100">Junmai Daiginjo Sake</h3>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">Subtle melon aroma and clean minerality to complement torch-seared Wagyu tataki and truffle caviar.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 4: VIP MASTER GUILD PASS & SALON INVITATION -->
+        <section id="home2-vip-callout" class="max-w-7xl mx-auto">
+          <div class="relative rounded-3xl p-8 sm:p-10 overflow-hidden border border-[#44382E] bg-gradient-to-r from-[#1E1915] via-[#161311] to-[#0F0E0D] text-white shadow-2xl">
+            
+            <div class="relative z-10 max-w-2xl">
+              <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/20 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-4 border border-amber-500/30">
+                <span>✨ Quarterly VIP Master Guild Admission</span>
+              </div>
+
+              <h3 class="text-3xl sm:text-4xl font-bold leading-tight" style="font-weight: 540;">
+                Unlock Unlimited Masterclasses & Chef’s Table Access
+              </h3>
+
+              <p class="mt-4 text-sm text-stone-300 leading-relaxed">
+                Join the Culinara Master Guild for unlimited weekday & weekend workshops, 24/7 access to our quiet culinary study lounge, and reserved sommelier wine tastings.
+              </p>
+
+              <div class="mt-8 flex flex-wrap items-center gap-4">
+                <a href="services.html#pricing-tiers-section" class="px-7 py-3.5 rounded-xl font-bold text-xs shadow-lg transition-all bg-gradient-to-r from-[#FF6B35] to-[#E5A952] text-stone-950 hover:brightness-110">
+                  View Guild Membership Tiers
+                </a>
+                <a href="contact.html" class="px-6 py-3.5 rounded-xl font-semibold text-xs border border-stone-700 bg-stone-900/80 text-stone-200 hover:bg-stone-800">
+                  Book Private Studio Buyout
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- SECTION 5: MICHELIN GUEST SERIES TEASER -->
+        <section id="michelin-teaser-section" class="max-w-5xl mx-auto py-10 px-6 sm:px-8 rounded-3xl border bg-[#FAF5EE] border-[#E2D5C3] dark:bg-[#161412] dark:border-[#332D27] text-center">
+          <span class="px-3.5 py-1.5 rounded-full bg-amber-500/15 text-[#D45B3A] dark:text-amber-400 text-xs font-semibold uppercase border border-amber-500/30">Exclusive Seasonal Series</span>
+          <h2 class="text-3xl sm:text-4xl text-stone-900 dark:text-stone-100 tracking-tight mt-3" style="font-weight: 580;">The Michelin Guest Master Series</h2>
+          <p class="mt-2 text-xs sm:text-sm text-stone-600 dark:text-stone-400 max-w-xl mx-auto leading-relaxed">We are bringing 2 & 3 Michelin-starred master chefs to our open-flame theater kitchen for intimate 12-seat weekend masterclasses.</p>
+
+          <div class="grid grid-cols-4 gap-3 max-w-md mx-auto my-6">
+            <div class="p-3 rounded-2xl border bg-white border-[#E0D5C5] dark:bg-[#1A1816] dark:border-[#332D27]">
+              <span id="timer-days" class="text-2xl font-bold text-[#D45B3A] dark:text-amber-400 block">18</span>
+              <span class="text-[10px] uppercase tracking-wider text-stone-500 dark:text-stone-400">Days</span>
+            </div>
+            <div class="p-3 rounded-2xl border bg-white border-[#E0D5C5] dark:bg-[#1A1816] dark:border-[#332D27]">
+              <span id="timer-hours" class="text-2xl font-bold text-[#D45B3A] dark:text-amber-400 block">07</span>
+              <span class="text-[10px] uppercase tracking-wider text-stone-500 dark:text-stone-400">Hours</span>
+            </div>
+            <div class="p-3 rounded-2xl border bg-white border-[#E0D5C5] dark:bg-[#1A1816] dark:border-[#332D27]">
+              <span id="timer-mins" class="text-2xl font-bold text-[#D45B3A] dark:text-amber-400 block">42</span>
+              <span class="text-[10px] uppercase tracking-wider text-stone-500 dark:text-stone-400">Mins</span>
+            </div>
+            <div class="p-3 rounded-2xl border bg-white border-[#E0D5C5] dark:bg-[#1A1816] dark:border-[#332D27]">
+              <span id="timer-secs" class="text-2xl font-bold text-[#D45B3A] dark:text-amber-400 block">15</span>
+              <span class="text-[10px] uppercase tracking-wider text-stone-500 dark:text-stone-400">Secs</span>
+            </div>
+          </div>
+
+          <form id="newsletter-form-home2" class="flex gap-2 max-w-md mx-auto">
+            <input type="email" required placeholder="Enter email for 48h priority alert..." class="flex-1 px-4 py-2 text-xs rounded-xl border bg-white border-[#D8CCBD] text-stone-900 dark:bg-[#1F1C18] dark:border-[#38312B] dark:text-stone-100" />
+            <button type="submit" class="px-5 py-2 rounded-xl text-xs font-bold bg-[#D45B3A] text-white dark:bg-[#FF6B35] dark:text-stone-950">Notify Me</button>
+          </form>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- COMPACT ELEGANT FOOTER -->
+        <!-- COMPACT ELEGANT FOOTER WITH BREATHABLE TOP MARGIN -->
+    <footer id="main-app-footer" class="mt-20 md:mt-28 pt-12 pb-8 border-t bg-[#F5EFE6] text-stone-700 border-[#E2D5C3] dark:bg-[#0E0D0C] dark:text-stone-300 dark:border-[#26221E]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-8 border-b border-[#E2D5C3] dark:border-[#26221E]">
+          
+          <!-- Col 1: Brand Info & 100% Exact Header Logo Replica -->
+          <div class="space-y-3">
+            <a href="index.html" class="inline-flex items-center gap-2.5 focus:outline-none text-left">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
+                <rect width="40" height="40" rx="10" class="fill-[#F4ECE1] dark:fill-[#231F1C] stroke-[#E25822] dark:stroke-[#E5A952]" stroke-width="1.5"/>
+                <path d="M20 9C20 9 24.5 13.5 24.5 18.5C24.5 22.5 21.5 25 18 25C14.5 25 12 22 12 18.5C12 15 14 12.5 15.5 11C15 13 16 14.5 17.5 14.5C19 14.5 19.5 13 19.5 11C19.5 10 20 9 20 9Z" fill="url(#flame_grad_foot)"/>
+                <path d="M26 29L21 24M21 24L22.5 22.5M21 24L19.5 25.5" class="stroke-[#D45B3A] dark:stroke-[#E5A952]" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="28" cy="14" r="2" class="fill-[#E25822] dark:fill-[#FF6B35]"/>
+                <defs>
+                  <linearGradient id="flame_grad_foot" x1="12" y1="9" x2="25" y2="25" gradientUnits="userSpaceOnUse">
+                    <stop class="stop-color-[#E25822] dark:stop-color-[#FF6B35]" stop-color="#E25822"/>
+                    <stop offset="1" class="stop-color-[#D45B3A] dark:stop-color-[#E5A952]" stop-color="#D45B3A"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="flex flex-col leading-none">
+                <span class="text-xl tracking-tight font-semibold text-stone-900 dark:text-white" style="font-weight: 580;">Culinara</span>
+                <span class="text-[10px] tracking-widest uppercase font-medium mt-0.5 text-stone-500 dark:text-amber-400/90">CULINARY STUDIO</span>
+              </div>
+            </a>
+            <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
+              Artisanal culinary studio offering 100% hands-on masterclasses, marble workstation learning, and sommelier dining experiences.
+            </p>
+            <div class="text-xs text-stone-600 dark:text-stone-400 space-y-0.5">
+              <p>📍 420 Artisan Lane, San Francisco, CA</p>
+              <p>📞 +1 (415) 890-7621 • ✉️ contact@culinara.studio</p>
+            </div>
+          </div>
+
+          <!-- Col 2: Navigation Links -->
+          <div class="space-y-2">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100">Studio Pages</h4>
+            <ul class="space-y-1.5 text-xs">
+              <li><a href="index.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Home Studio</a></li>
+              <li><a href="home-2.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Chef's Table</a></li>
+              <li><a href="services.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Workshops & Passes</a></li>
+              <li><a href="about.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">About Our Kitchen</a></li>
+              <li><a href="gallery.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Photo Gallery</a></li>
+              <li><a href="blog.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Culinary Journal</a></li>
+              <li><a href="contact.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Contact Concierge</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Cuisine Masterclasses -->
+          <div class="space-y-2">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100">Cuisine Tracks</h4>
+            <ul class="space-y-1.5 text-xs">
+              <li><a href="services.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Italian Egg-Pasta Craft</a></li>
+              <li><a href="services.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Royal Awadhi Biryani</a></li>
+              <li><a href="services.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Sourdough & Viennoiserie</a></li>
+              <li><a href="services.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">French Bistro Reductions</a></li>
+              <li><a href="services.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Artisanal Crystal Dim Sum</a></li>
+              <li><a href="services.html" class="hover:text-[#D45B3A] dark:hover:text-amber-400 transition-colors">Neapolitan Wood-Fired Pizza</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Newsletter Signup -->
+          <div class="space-y-2">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100">Chef’s Journal</h4>
+            <p class="text-xs text-stone-600 dark:text-stone-400">Subscribe for weekly chef notes, ingredient tips, and 48h priority alerts for guest masterclasses.</p>
+            <form onsubmit="event.preventDefault(); showToast('Subscribed to Chef Journal!', 'success');" class="space-y-2 pt-1">
+              <input type="email" required placeholder="Your email address..." class="w-full px-3 py-2 text-xs rounded-lg border bg-white border-[#DFD3C3] text-stone-800 dark:bg-[#1C1A17] dark:border-[#38302A] dark:text-stone-100" />
+              <button type="submit" class="w-full py-2 px-3 text-xs font-bold rounded-lg bg-[#D45B3A] text-white dark:bg-[#FF6B35] dark:text-stone-950">Join Journal</button>
+            </form>
+          </div>
+
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-stone-500">
+          <span>&copy; 2026 Culinara Culinary Studio. All rights reserved.</span>
+          <button id="footer-back-to-top-btn" class="px-3 py-1.5 rounded-lg text-xs font-semibold border bg-white border-[#DFD4C5] text-stone-800 dark:bg-[#1E1B18] dark:border-[#38312B] dark:text-amber-400 cursor-pointer">Back to Top ↑</button>
+        </div>
+      </div>
+    </footer>
+
+    <!-- MODALS -->
+    <div id="class-booking-modal-backdrop" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-xs overflow-y-auto">
+      <div id="class-booking-modal-card" class="relative w-full max-w-xl rounded-2xl border shadow-2xl bg-[#FAF8F5] border-[#E5D7C5] text-stone-900 dark:bg-[#181614] dark:border-[#362F29] dark:text-stone-100"></div>
+    </div>
+    <div id="recipe-notes-modal-backdrop" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-xs overflow-y-auto">
+      <div id="recipe-notes-modal-card" class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl border shadow-2xl bg-[#FAF8F5] border-[#E5D7C5] text-stone-900 dark:bg-[#181614] dark:border-[#362F29] dark:text-stone-100"></div>
+    </div>
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none"></div>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
