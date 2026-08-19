@@ -21,6 +21,9 @@
     })();
   </script>
 
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/images/favicon.svg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -40,7 +43,7 @@
     class="fixed top-0 left-0 right-0 z-40 bg-[#FAF7F2] border-b border-[#E8DFC8] dark:bg-[#121110] dark:border-[#2A2622] shadow-xs transition-all duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
 
-            <!-- BRAND LOGO -->
+      <!-- BRAND LOGO -->
       <a href="index.html" class="inline-flex items-center gap-2.5 focus:outline-none text-left">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
           class="flex-shrink-0">
@@ -106,25 +109,11 @@
           Workshop</button>
         <a href="auth.html"
           class="px-4 py-2 text-xs font-semibold rounded-lg border border-[#D45B3A] text-[#D45B3A] dark:border-amber-400 dark:text-amber-400 hover:bg-[#D45B3A] hover:text-white dark:hover:bg-amber-400 dark:hover:text-stone-950 transition-colors">Login</a>
+        
       </div>
 
       <!-- TABLET & MOBILE CONTROLS (< 1100px) -->
-      <div class="flex items-center gap-2 min-[1100px]:hidden">
-        <button id="header-rtl-toggle-btn"
-          class="px-2.5 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer">RTL</button>
-        <button id="header-theme-toggle-btn"
-          class="flex items-center justify-center p-2 text-xs font-semibold tracking-wider rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer"
-          aria-label="Toggle Theme">
-          <svg class="w-4 h-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-          </svg>
-          <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
-            </path>
-          </svg>
-        </button>
+      <div class="flex items-center min-[1100px]:hidden">
         <button id="mobile-hamburger-toggle-btn"
           class="p-2 rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer"
           aria-label="Open Navigation Menu">
@@ -137,45 +126,89 @@
     </div>
   </header>
 
-  <!-- SINGLE CLEAN TABLET & MOBILE OFFCANVAS DRAWER -->
+  <!-- OFFCANVAS SIDEBAR BACKDROP -->
+  <div id="sidebar-backdrop" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-xs transition-opacity duration-300"></div>
+
+  <!-- RESPONSIVE OFFCANVAS SIDEBAR DRAWER (MAIN DESKTOP & MOBILE VIEWS) -->
   <div id="mobile-fullscreen-menu"
-    class="hidden fixed inset-0 z-50 bg-[#FAF7F2] dark:bg-[#121110] flex flex-col justify-between p-6 overflow-y-auto min-[1100px]:hidden shadow-2xl">
+    class="hidden fixed top-0 right-0 z-50 h-full w-full sm:w-[420px] bg-[#FAF7F2] dark:bg-[#121110] border-l border-[#E5D7C5] dark:border-[#332D27] flex flex-col justify-between p-6 sm:p-7 overflow-y-auto shadow-2xl">
     <div>
+      <!-- DRAWER TOP BAR -->
       <div class="flex items-center justify-between pb-4 border-b border-[#E5D7C5] dark:border-[#332D27]">
-        <span class="text-xs font-bold uppercase tracking-widest text-[#D45B3A] dark:text-amber-400">Navigation
-          Menu</span>
-        <button onclick="document.getElementById('mobile-fullscreen-menu').classList.add('hidden')"
-          class="p-2 rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer"
-          aria-label="Close Menu">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="flex items-center gap-2">
+          <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
+            <rect width="40" height="40" rx="10" class="fill-[#F4ECE1] dark:fill-[#231F1C] stroke-[#E25822] dark:stroke-[#E5A952]" stroke-width="1.5" />
+            <path d="M20 9C20 9 24.5 13.5 24.5 18.5C24.5 22.5 21.5 25 18 25C14.5 25 12 22 12 18.5C12 15 14 12.5 15.5 11C15 13 16 14.5 17.5 14.5C19 14.5 19.5 13 19.5 11C19.5 10 20 9 20 9Z" fill="#D45B3A" />
+            <circle cx="28" cy="14" r="2" class="fill-[#E25822] dark:fill-[#FF6B35]" />
+          </svg>
+          <span class="text-sm font-bold tracking-tight text-stone-900 dark:text-stone-100 uppercase">Culinara Studio</span>
+        </div>
+        <button id="sidebar-close-btn" onclick="closeStudioSidebar()"
+          class="p-2 rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer hover:bg-[#EAE2D5] dark:hover:bg-[#2A241F] transition-colors"
+          aria-label="Close Sidebar">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
       </div>
 
-      <nav class="flex flex-col gap-2.5 py-6 text-base font-semibold">
+      <!-- MAIN NAVIGATION LINKS -->
+      <nav class="flex flex-col gap-2 py-6 text-sm font-semibold">
         <a href="index.html"
-          class="px-4 py-3 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Home</a><a
-          href="home-2.html"
-          class="px-4 py-3 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Chef's
-          Table</a><a href="about.html"
-          class="px-4 py-3 rounded-xl font-bold bg-[#F2E8DA] text-[#D45B3A] dark:bg-[#2A241F] dark:text-amber-400">About</a><a
-          href="services.html"
-          class="px-4 py-3 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Workshops
-          & Passes</a><a href="contact.html"
-          class="px-4 py-3 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Contact</a><a
-          href="dashboard.html"
-          class="px-4 py-3 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Dashboard</a>
+          class="px-3.5 py-2.5 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Home</a>
+        <a href="home-2.html"
+          class="px-3.5 py-2.5 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Chef's Table</a>
+        <a href="about.html"
+          class="px-3.5 py-2.5 rounded-xl font-bold bg-[#F2E8DA] text-[#D45B3A] dark:bg-[#2A241F] dark:text-amber-400">About</a>
+        <a href="services.html"
+          class="px-3.5 py-2.5 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Workshops & Passes</a>
+        <a href="gallery.html"
+          class="px-3.5 py-2.5 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Photo Gallery</a>
+        <a href="blog.html"
+          class="px-3.5 py-2.5 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Culinary Journal</a>
+        <a href="contact.html"
+          class="px-3.5 py-2.5 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Contact Concierge</a>
+        <a href="dashboard.html"
+          class="px-3.5 py-2.5 rounded-xl font-semibold text-stone-900 hover:bg-[#F2ECE3] dark:text-stone-100 dark:hover:bg-[#221E1B]">Student Dashboard</a>
       </nav>
     </div>
 
-    <div class="space-y-3 pt-6 border-t border-[#E5D7C5] dark:border-[#332D27]">
-      <button onclick="document.getElementById('mobile-fullscreen-menu').classList.add('hidden'); openBookingModal();"
-        class="w-full py-3 text-sm font-semibold rounded-xl bg-[#D45B3A] text-white dark:bg-gradient-to-r dark:from-[#FF6B35] dark:to-[#E5A952] dark:text-stone-950 cursor-pointer">Book
-        Workshop</button>
-      <a href="auth.html"
-        class="block w-full text-center py-3 text-sm font-semibold rounded-xl border border-[#D45B3A] text-[#D45B3A] dark:border-amber-400 dark:text-amber-400 font-semibold">Login
-        to Student Portal</a>
+    <!-- BOTTOM DRAWER ACTIONS & QUICK CONTROLS -->
+    <div class="space-y-5 pt-6 border-t border-[#E5D7C5] dark:border-[#332D27]">
+      <!-- QUICK OPTIONS (THEME & RTL TOGGLES PLACED BELOW MENUS NEAR BUTTONS) -->
+      <div class="grid grid-cols-2 gap-2.5">
+        <button id="mobile-theme-btn"
+          class="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl border text-xs font-semibold bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer shadow-xs transition-colors"
+          aria-label="Toggle Theme">
+          <svg class="w-4 h-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+          <svg class="w-4 h-4 hidden dark:block text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+          <span class="mobile-theme-label">Dark Theme</span>
+        </button>
+        <button id="mobile-rtl-btn"
+          class="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl border text-xs font-semibold uppercase tracking-wider bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer shadow-xs transition-colors"
+          aria-label="Toggle Direction">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+          </svg>
+          <span class="mobile-rtl-label">RTL Mode</span>
+        </button>
+      </div>
+
+      <!-- ACTION BUTTONS -->
+      <div class="space-y-3.5">
+        <button onclick="closeStudioSidebar(); openBookingModal();"
+          class="w-full py-3 text-sm font-semibold rounded-xl bg-[#D45B3A] text-white dark:bg-gradient-to-r dark:from-[#FF6B35] dark:to-[#E5A952] dark:text-stone-950 cursor-pointer shadow-sm">Book
+          Workshop</button>
+        <a href="auth.html"
+          class="block w-full text-center py-3 text-sm font-semibold rounded-xl border border-[#D45B3A] text-[#D45B3A] dark:border-amber-400 dark:text-amber-400 font-semibold hover:bg-[#D45B3A] hover:text-white dark:hover:bg-amber-400 dark:hover:text-stone-950 transition-colors">Login
+          to Student Portal</a>
+      </div>
     </div>
   </div>
 
@@ -319,10 +352,10 @@
             </div>
             <h3 class="text-xl font-bold text-stone-900 dark:text-stone-100">Egg Yolk Hydration Ratios in Sfoglia
               Rolling</h3>
-            <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">Why calculating protein density in
+            <p class="text-xs font-semibold text-stone-900 dark:text-stone-100 leading-relaxed">Why calculating protein density in
               zero-zero flour yields perfect pasta teeth snap without rubberiness.</p>
             <div class="pt-2 border-t border-stone-200 dark:border-stone-800 flex items-center justify-between">
-              <span class="text-xs text-stone-500">By Chef Matteao Rossi</span>
+              <span class="text-xs font-bold text-stone-900 dark:text-stone-100">By Chef Matteao Rossi</span>
               <a href="blog-details.html"
                 class="text-xs font-bold text-[#D45B3A] dark:text-amber-400 hover:underline">Read Article →</a>
             </div>
@@ -335,10 +368,10 @@
             </div>
             <h3 class="text-xl font-bold text-stone-900 dark:text-stone-100">Managing Levain Acidities for Sourdough
               Oven Spring</h3>
-            <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">Balancing acetic versus lactic acid
+            <p class="text-xs font-semibold text-stone-900 dark:text-stone-100 leading-relaxed">Balancing acetic versus lactic acid
               bacteria during 24-hour cold retardations for optimal crust blisters.</p>
             <div class="pt-2 border-t border-stone-200 dark:border-stone-800 flex items-center justify-between">
-              <span class="text-xs text-stone-500">By Chef Julien Laurent</span>
+              <span class="text-xs font-bold text-stone-900 dark:text-stone-100">By Chef Julien Laurent</span>
               <a href="blog-details.html"
                 class="text-xs font-bold text-[#D45B3A] dark:text-amber-400 hover:underline">Read Article →</a>
             </div>

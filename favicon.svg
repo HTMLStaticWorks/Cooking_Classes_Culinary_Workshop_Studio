@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="16" fill="#FAF7F2" stroke="#D45B3A" stroke-width="2.5"/>
+  <defs>
+    <linearGradient id="culinara_flame_icon" x1="18" y1="12" x2="42" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF6B35"/>
+      <stop offset="0.55" stop-color="#E25822"/>
+      <stop offset="1" stop-color="#D45B3A"/>
+    </linearGradient>
+    <filter id="flame_shadow" x="12" y="8" width="40" height="46" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#D45B3A" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <path d="M32 13C32 13 39 20.5 39 28.5C39 34.5 34.5 38.5 29 38.5C23.5 38.5 19.5 34 19.5 28.5C19.5 23 22.5 19 25 16.5C24 19.5 25.5 22 28 22C30.5 22 31.2 19.5 31.2 16.5C31.2 14.8 32 13 32 13Z" fill="url(#culinara_flame_icon)" filter="url(#flame_shadow)"/>
+  <path d="M42 46L34 38M34 38L36.5 35.5M34 38L31.5 40.5" stroke="#D45B3A" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="45" cy="21" r="3.2" fill="#E25822"/>
+</svg>
