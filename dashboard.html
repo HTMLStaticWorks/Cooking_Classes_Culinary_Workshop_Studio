@@ -27,16 +27,56 @@
   <style>
     /* Exact responsive breakpoints per instructions */
     @media (max-width: 1100px) {
-      .dash-desktop-flex { display: none !important; }
-      .dash-desktop-inline-flex { display: none !important; }
-      aside.dash-desktop-block { display: none !important; }
-      .dash-mobile-block { display: block !important; }
+      .dash-desktop-flex {
+        display: none !important;
+      }
+
+      .dash-desktop-inline-flex {
+        display: none !important;
+      }
+
+      aside.dash-desktop-block {
+        display: none !important;
+      }
+
+      .dash-mobile-block {
+        display: block !important;
+      }
     }
+
     @media (min-width: 1101px) {
-      .dash-mobile-block { display: none !important; }
-      .dash-desktop-flex { display: flex !important; }
-      .dash-desktop-inline-flex { display: inline-flex !important; }
-      aside.dash-desktop-block { display: block !important; }
+      .dash-mobile-block {
+        display: none !important;
+      }
+
+      .dash-desktop-flex {
+        display: flex !important;
+      }
+
+      .dash-desktop-inline-flex {
+        display: inline-flex !important;
+      }
+
+      aside.dash-desktop-block {
+        display: block !important;
+      }
+    }
+
+    /* Custom hover visibility overrides for uncompiled Tailwind classes */
+    .hover\:bg-\[\#EAE2D5\]:hover {
+      background-color: #EAE2D5 !important;
+    }
+    .hover\:bg-red-50:hover {
+      background-color: #fef2f2 !important;
+    }
+    html.dark .dark\:hover\:bg-\[\#221E1B\]:hover {
+      background-color: #221E1B !important;
+    }
+    html.dark .dark\:hover\:bg-\[\#2A241F\]:hover {
+      background-color: #2A241F !important;
+    }
+    html.dark .dark\:hover\:bg-red-950\/20:hover {
+      background-color: rgba(69, 10, 10, 0.20) !important;
     }
   </style>
 
@@ -106,7 +146,7 @@
             </path>
           </svg>
         </button>
-        
+
 
         <button id="mobile-hamburger-toggle-btn"
           class="dash-mobile-block p-2 rounded-lg border bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer"
@@ -128,7 +168,8 @@
   </header>
 
   <!-- OFFCANVAS SIDEBAR BACKDROP -->
-  <div id="sidebar-backdrop" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-xs transition-opacity duration-300"></div>
+  <div id="sidebar-backdrop"
+    class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-xs transition-opacity duration-300"></div>
 
   <!-- RESPONSIVE OFFCANVAS SIDEBAR DRAWER (MAIN DESKTOP & MOBILE VIEWS) -->
   <div id="mobile-fullscreen-menu"
@@ -138,10 +179,12 @@
       <div class="flex items-center justify-between pb-4 border-b border-[#E5D7C5] dark:border-[#332D27]">
         <div class="flex items-center gap-2.5">
           <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
-            alt="Elena Rostova" class="w-9 h-9 rounded-full object-cover border border-[#D45B3A] dark:border-amber-400" />
+            alt="Elena Rostova"
+            class="w-9 h-9 rounded-full object-cover border border-[#D45B3A] dark:border-amber-400" />
           <div class="flex flex-col leading-none">
             <span class="text-xs font-bold text-stone-900 dark:text-stone-100">Elena Rostova</span>
-            <span class="text-[10px] text-stone-500 dark:text-amber-400/90 mt-0.5 font-semibold">Student Portal • ID #8942</span>
+            <span class="text-[10px] text-stone-500 dark:text-amber-400/90 mt-0.5 font-semibold">Student Portal • ID
+              #8942</span>
           </div>
         </div>
         <button id="sidebar-close-btn" onclick="closeStudioSidebar()"
@@ -155,7 +198,9 @@
 
       <!-- Student Portal Navigation Buttons -->
       <div class="py-6 space-y-3">
-        <span class="text-[10px] font-bold uppercase tracking-widest text-[#D45B3A] dark:text-amber-400 block px-1">Student Dashboard Controls</span>
+        <span
+          class="text-[10px] font-bold uppercase tracking-widest text-[#D45B3A] dark:text-amber-400 block px-1">Student
+          Dashboard Controls</span>
         <nav class="flex flex-col gap-2.5 text-xs font-semibold">
           <button onclick="triggerDashTab('browse'); closeStudioSidebar();"
             class="mobile-dash-btn active w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-colors text-left bg-[#D45B3A] text-white dark:bg-amber-500 dark:text-stone-950 cursor-pointer">
@@ -194,15 +239,17 @@
           </svg>
           <svg class="w-4 h-4 hidden dark:block text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+            </path>
           </svg>
           <span class="mobile-theme-label">Dark Theme</span>
         </button>
         <button id="mobile-rtl-btn"
           class="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl border text-xs font-semibold uppercase tracking-wider bg-[#F2ECE3] border-[#DFD3C3] text-stone-800 dark:bg-[#221E1B] dark:border-[#38302A] dark:text-amber-400 cursor-pointer shadow-xs transition-colors"
           aria-label="Toggle Direction">
-          <svg class="w-4 h-4 fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+          <svg class="w-4 h-4 fill=" none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
           </svg>
           <span class="mobile-rtl-label">RTL Mode</span>
         </button>
@@ -210,7 +257,8 @@
 
       <!-- LOGOUT BUTTON -->
       <div>
-        <a href="index.html" class="flex items-center justify-center gap-2 w-full py-3 text-sm font-semibold rounded-xl text-red-600 border border-red-200 dark:border-red-900/40 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/20 transition-colors">
+        <a href="index.html"
+          class="flex items-center justify-center gap-2 w-full py-3 text-sm font-semibold rounded-xl text-red-600 border border-red-200 dark:border-red-900/40 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/20 transition-colors">
           <span>🚪</span>
           <span>Logout to Home</span>
         </a>
@@ -219,18 +267,21 @@
   </div>
 
   <!-- DASHBOARD MAIN BODY (SIDEBAR + CONTENT PANEL) -->
-  <div class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-24 md:pt-28 pb-24 md:pb-32 flex flex-col md:flex-row gap-10 md:gap-14">
+  <div
+    class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-24 md:pt-28 pb-24 md:pb-32 flex flex-col md:flex-row gap-10 md:gap-14">
 
     <!-- LEFT SIDEBAR NAVIGATION -->
     <aside class="dash-desktop-block w-64 flex-shrink-0 space-y-6">
-      <div class="p-6 md:p-8 rounded-3xl border bg-white border-[#E8DFD3] dark:bg-[#181614] dark:border-[#362E27] shadow-sm space-y-6">
+      <div
+        class="p-6 md:p-8 rounded-3xl border bg-white border-[#E8DFD3] dark:bg-[#181614] dark:border-[#362E27] shadow-sm space-y-6">
 
         <div class="pb-4 mb-4 border-b border-stone-200 dark:border-stone-800 flex items-center gap-3">
           <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
             alt="Elena Rostova"
             class="w-12 h-12 rounded-full object-cover border border-[#D45B3A] dark:border-amber-400" />
           <div class="flex flex-col">
-            <span class="text-[10px] font-bold uppercase tracking-widest text-[#D45B3A] dark:text-amber-400">Student Portal</span>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-[#D45B3A] dark:text-amber-400">Student
+              Portal</span>
             <h2 class="text-base font-bold text-stone-900 dark:text-stone-100 mt-0.5 leading-none">Elena Rostova</h2>
             <span class="text-[11px] text-stone-500 dark:text-stone-400 mt-1">Guild Member • ID #8942</span>
           </div>
@@ -284,7 +335,8 @@
 
       <!-- SECTION 1: BROWSE UPCOMING CLASS SCHEDULES BY CUISINE TYPE -->
       <section data-dash-panel="browse" class="dash-panel space-y-12 md:space-y-16">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 pb-8 border-b border-[#E8DFC8] dark:border-[#332D27] mb-12 md:mb-16">
+        <div
+          class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 pb-8 border-b border-[#E8DFC8] dark:border-[#332D27] mb-12 md:mb-16">
           <div>
             <span class="text-xs uppercase tracking-wider font-semibold text-[#D45B3A] dark:text-amber-400">Class
               Finder</span>
@@ -295,7 +347,8 @@
         </div>
 
         <!-- Cuisine Filter Buttons -->
-        <div class="flex flex-wrap gap-3 py-6 mt-8 mb-12 md:mt-10 md:mb-16 border-b border-[#E8DFC8]/60 dark:border-[#332D27]/60">
+        <div
+          class="flex flex-wrap gap-3 py-6 mt-8 mb-12 md:mt-10 md:mb-16 border-b border-[#E8DFC8]/60 dark:border-[#332D27]/60">
           <button onclick="filterCuisine('all', this)"
             class="cuisine-filter-btn active px-4 py-2.5 rounded-xl text-xs font-semibold border bg-[#D45B3A] text-white border-[#D45B3A] dark:bg-amber-500 dark:text-stone-950 shadow-xs">All
             Cuisines</button>
@@ -639,7 +692,7 @@
     function triggerDashTab(tab) {
       const desktopBtn = document.querySelector(`[data-dash-btn="${tab}"]`);
       if (desktopBtn) desktopBtn.click();
-      
+
       const mobileBtns = document.querySelectorAll('.mobile-dash-btn');
       mobileBtns.forEach(mBtn => {
         mBtn.classList.remove('active', 'bg-[#D45B3A]', 'text-white', 'dark:bg-amber-500', 'dark:text-stone-950');

@@ -22,3 +22,15 @@ html.dark ::-webkit-scrollbar-thumb {
 html.dark ::-webkit-scrollbar-thumb:hover {
   background: rgba(200, 180, 150, 0.45);
 }
+
+/* Global hover visibility overrides for uncompiled Tailwind classes in dark mode */
+html.dark .dark\:hover\:bg-\[\#221E1B\]:hover {
+  background-color: #221E1B !important;
+}
+html.dark .dark\:hover\:bg-\[\#2A241F\]:hover {
+  background-color: #2A241F !important;
+}
+html.dark .dark\:hover\:bg-red-950\/20:hover {
+  background-color: rgba(69, 10, 10, 0.20) !important;
+}
+
